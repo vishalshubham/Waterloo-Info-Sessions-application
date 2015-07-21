@@ -1,0 +1,1 @@
+This is an android application that provides information about various information sessions happening in University of Waterloo every day. Sessions can be found at http://www.ceca.uwaterloo.ca/students/sessions.php website and this application provides all that information at the tips of your finger. User can also set a notification reminder about a particular info session.
