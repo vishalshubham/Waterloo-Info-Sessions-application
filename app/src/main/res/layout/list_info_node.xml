@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/infoNodeIcon"
+        android:src="@drawable/reminder"
+        android:padding="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/text_session_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_text_session_name"/>
+        <TextView
+            android:id="@+id/text_session_date_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_text_session_date_time"/>
+        <TextView
+            android:id="@+id/text_session_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_text_session_location"/>
+        <TextView
+            android:id="@+id/text_session_for"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_text_session_for"/>
+    </LinearLayout>
+
+</LinearLayout>

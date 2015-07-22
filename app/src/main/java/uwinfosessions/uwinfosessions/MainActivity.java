@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
 
@@ -15,8 +17,20 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = (ListView)findViewById(R.id.main_list);
+        setInfoNodeListListner();
+    }
 
+    public void setInfoNodeListListner(){
+        ArrayList<InfoNode> infoNodeList = new ArrayList<InfoNode>();
+
+        for(int i=1; i<=10; i++){
+            infoNodeList.add(new InfoNode(i, "Amazon", "21-Jul-2015", "5.00PM", "DC1301", "For Coop and graduating"));
+        }
+
+        InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this, infoNodeList);
+
+        ListView list_main = (ListView)findViewById(R.id.main_list);
+        list_main.setAdapter(infoNodeAdapter);
     }
 
     @Override

@@ -1,10 +1,12 @@
 package uwinfosessions.uwinfosessions;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -37,11 +39,30 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return infoNodes.get(position).getSessionId();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.list_info_node, null);
+
+        InfoNode infoNode = infoNodes.get(position);
+        String sessionName = infoNode.getSessionName();
+        String sessionDate = infoNode.getSessionDate();
+        String sessionTime = infoNode.getSessionTime();
+        String sessionLocation = infoNode.getSessionLocation();
+        String sessionFor = infoNode.getSessionFor();
+
+        TextView sessionNameView = (TextView)view.findViewById(R.id.text_session_name);
+        TextView sessionDateTimeView = (TextView)view.findViewById(R.id.text_session_date_time);
+        TextView sessionLocationView = (TextView)view.findViewById(R.id.text_session_location);
+        TextView sessionForView = (TextView)view.findViewById(R.id.text_session_for);
+
+        sessionNameView.setText(sessionName);
+        sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
+        sessionLocationView.setText(sessionLocation);
+        sessionForView.setText(sessionFor);
+        return view;
     }
 }

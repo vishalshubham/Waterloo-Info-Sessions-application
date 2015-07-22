@@ -4,23 +4,32 @@ package uwinfosessions.uwinfosessions;
  * Created by Vishal on 21/07/2015.
  */
 public class InfoNode {
-    private int id;
+    private int sessionId;
     private String sessionName;
     private String sessionDate;
     private String sessionTime;
     private String sessionLocation;
     private String sessionFor;
 
+    public InfoNode(int sessionId, String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionFor) {
+        this.sessionId = sessionId;
+        this.sessionName = sessionName;
+        this.sessionDate = sessionDate;
+        this.sessionTime = sessionTime;
+        this.sessionLocation = sessionLocation;
+        this.sessionFor = sessionFor;
+    }
+
     public String getSessionName() {
         return sessionName;
     }
 
-    public int getId() {
-        return id;
+    public int getSessionId() {
+        return sessionId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSessionId(int id) {
+        this.sessionId = id;
     }
 
     public void setSessionName(String sessionName) {
