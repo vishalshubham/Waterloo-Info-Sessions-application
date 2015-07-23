@@ -3,6 +3,7 @@ package uwinfosessions.uwinfosessions;
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
+
+    public static String DEBUGTAG="VC";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +24,12 @@ public class MainActivity extends Activity {
     }
 
     public void setInfoNodeListListner(){
-        ArrayList<InfoNode> infoNodeList = new ArrayList<InfoNode>();
+        Log.d(DEBUGTAG,"OMG");
+        ArrayList<InfoNode> infoNodeList = (ArrayList<InfoNode>)PageParser.parsePage();
 
-        for(int i=1; i<=10; i++){
-            infoNodeList.add(new InfoNode(i, "Amazon", "21-Jul-2015", "5.00PM", "DC1301", "For Coop and graduating"));
-        }
+       /* for(int i=1; i<=infoNodeList.size(); i++){
+            Log.d(DEBUGTAG,infoNodeList.get(i).getSessionName());
+        }*/
 
         InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this, infoNodeList);
 
