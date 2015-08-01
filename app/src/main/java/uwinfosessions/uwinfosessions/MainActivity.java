@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
             }
         }.execute();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1250);
             dialog.dismiss();
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -1,10 +1,12 @@
 package uwinfosessions.uwinfosessions;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -70,10 +72,22 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         TextView sessionLocationView = (TextView)view.findViewById(R.id.text_session_location);
         TextView sessionForView = (TextView)view.findViewById(R.id.text_session_for);
 
+        ImageView imageFav = (ImageView)view.findViewById(R.id.ic_fav);
+        ImageView imageInfo = (ImageView)view.findViewById(R.id.ic_info);
+        ImageView imageReminder = (ImageView)view.findViewById(R.id.ic_reminder);
+        ImageView imageLocation = (ImageView)view.findViewById(R.id.ic_location);
+
+        imageFav.setImageResource(R.drawable.ic_favunsel);
+        imageInfo.setImageResource(R.drawable.ic_info);
+        imageReminder.setImageResource(R.drawable.ic_reminder);
+        imageLocation.setImageResource(R.drawable.ic_location);
+
+
         sessionNameView.setText(sessionName);
         sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
         sessionLocationView.setText(sessionLocation);
         sessionForView.setText(sessionFor);
+        Log.d(MainActivity.DEBUGTAG, "Setting text and icons");
         return view;
     }
 }

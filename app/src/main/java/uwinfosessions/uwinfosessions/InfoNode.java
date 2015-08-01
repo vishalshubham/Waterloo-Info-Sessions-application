@@ -1,5 +1,7 @@
 package uwinfosessions.uwinfosessions;
 
+import android.widget.ImageView;
+
 /**
  * Created by Vishal on 21/07/2015.
  */
