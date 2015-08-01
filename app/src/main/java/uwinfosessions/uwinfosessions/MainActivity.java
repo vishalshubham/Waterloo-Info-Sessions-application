@@ -86,7 +86,10 @@ public class MainActivity extends Activity {
                     String line = wholeLine.substring(wholeLine.indexOf("<p><a href=\"sessions_details.php?id="), wholeLine.indexOf("</a></p>")+8);
                     wholeLine = wholeLine.substring(wholeLine.indexOf("</a></p>") + 8);
                     System.out.println(line);
-                    infoNodeList.add(getInfoNode(++id, line));
+                    InfoNode infoNode = getInfoNode(++id, line);
+                    if(!infoNode.getSessionName().contains("No info sessions") && !infoNode.getSessionName().contains("New Year")) {
+                        infoNodeList.add(infoNode);
+                    }
                 }
                 return infoNodeList;
             }
