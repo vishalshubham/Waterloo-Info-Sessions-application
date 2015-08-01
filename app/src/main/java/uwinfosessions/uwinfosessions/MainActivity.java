@@ -19,6 +19,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
+//    public InfoNodeAdapter infoNodeAdapter
     public static String DEBUGTAG="VC";
 
     @Override
@@ -31,18 +32,28 @@ public class MainActivity extends Activity {
 
     public void setInfoNodeListListner(){
         Log.d(DEBUGTAG, "OMG");
+
+        final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this);
         //ArrayList<InfoNode> infoNodeList = (ArrayList<InfoNode>)PageParser.parsePage();
 
         new AsyncTask<Void, Void, Void>(){
             protected Void doInBackground(Void... params) {
                 Log.d(DEBUGTAG, "OMG1");
                 ArrayList<InfoNode> infoNodeList = (ArrayList<InfoNode>)downloadPage();
-                /*InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(MainActivity.this, infoNodeList);
-                ListView list_main = (ListView)findViewById(R.id.main_list);
-                list_main.setAdapter(infoNodeAdapter);*/
+                infoNodeAdapter.setInfoNodes(infoNodeList);
+                Log.d(DEBUGTAG, "Adapter size: "+infoNodeAdapter.getCount());
                 return null;
             }
         }.execute();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.d(DEBUGTAG, "Adapter sizzzzzzzze: ");
+        ListView list_main = (ListView)findViewById(R.id.main_list);
+        Log.d(DEBUGTAG, "Adapter sizze: "+infoNodeAdapter.getCount());
+        list_main.setAdapter(infoNodeAdapter);
     }
 
     public List<InfoNode> downloadPage(){

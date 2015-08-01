@@ -22,6 +22,17 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         this.context = context;
         this.infoNodes = infoNodes;
     }
+    public InfoNodeAdapter(Context context){
+        this.context = context;
+    }
+
+    public List<InfoNode> getInfoNodes() {
+        return infoNodes;
+    }
+
+    public void setInfoNodes(List<InfoNode> infoNodes) {
+        this.infoNodes = infoNodes;
+    }
 
     public String getSessionName(int position){
         return infoNodes.get(position).getSessionName();
