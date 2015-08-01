@@ -13,11 +13,12 @@
     <!-- ActionBar styles -->
     <style name="MyActionBar"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">#EDA61B</item>
+        <item name="android:background">#FDE024</item>
+        <item name="android:textColor">#000</item>
     </style>
 
-    <style name="style_text_session_name">
-        <item name="android:background">#EDA61B</item>
+    <style name="style_text_session_name"><!--
+        <item name="android:background">#EDA61B</item>-->
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#000</item>
@@ -26,18 +27,18 @@
     <style name="style_text_session_date_time">
         <item name="android:textSize">14dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">#A6A6A6</item>
     </style>
 
     <style name="style_text_session_location">
         <item name="android:textSize">14dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">#A6A6A6</item>
     </style>
 
     <style name="style_text_session_for">
         <item name="android:textSize">11dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">#A6A6A6</item>
     </style>
 </resources>

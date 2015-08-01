@@ -6,9 +6,9 @@
         android:id="@+id/main_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#dddddd"
         android:dividerHeight="5dp"
-        android:padding="7dp"
-        android:background="#FFF"
+        android:background="#dddddd"
         android:headerDividersEnabled="true"
         android:footerDividersEnabled="true">
     </ListView>
