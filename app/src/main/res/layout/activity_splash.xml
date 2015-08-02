@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="uwinfosessions.uwinfosessions.StartActivity"
+    tools:context="uwinfosessions.uwinfosessions.MainActivity"
     android:gravity="center"
     android:background="#FFBB33">
 
@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/waterloo"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:shadowDx="@integer/abc_max_action_buttons"
+        android:shadowDy="@integer/abc_max_action_buttons"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -19,6 +21,8 @@
         android:text="@string/info_sessions"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:shadowDx="@integer/abc_max_action_buttons"
+        android:shadowDy="@integer/abc_max_action_buttons"/>
 
 </LinearLayout>

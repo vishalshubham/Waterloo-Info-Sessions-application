@@ -20,51 +20,39 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-//    public InfoNodeAdapter infoNodeAdapter
     public static String DEBUGTAG="VC";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setInfoNodeListListner();
     }
 
     public void setInfoNodeListListner(){
-        Log.d(DEBUGTAG, "OMG");
-
+        final ListView list_main = (ListView)findViewById(R.id.main_list);
         final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.getting_data);
-
-        AlertDialog dialog = builder.create();
+        final AlertDialog dialog = builder.create();
         dialog.show();
 
         new AsyncTask<Void, Void, Void>(){
             protected Void doInBackground(Void... params) {
-                Log.d(DEBUGTAG, "OMG1");
                 ArrayList<InfoNode> infoNodeList = (ArrayList<InfoNode>)downloadPage();
                 infoNodeAdapter.setInfoNodes(infoNodeList);
-                Log.d(DEBUGTAG, "Adapter size: " + infoNodeAdapter.getCount());
                 return null;
             }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                list_main.setAdapter(infoNodeAdapter);
+                dialog.dismiss();
+            }
         }.execute();
-        try {
-            Thread.sleep(1250);
-            dialog.dismiss();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Log.d(DEBUGTAG, "Adapter sizzzzzzzze: ");
-        ListView list_main = (ListView)findViewById(R.id.main_list);
-        Log.d(DEBUGTAG, "Adapter sizze: "+infoNodeAdapter.getCount());
-        list_main.setAdapter(infoNodeAdapter);
     }
 
     public List<InfoNode> downloadPage(){
         try{
-            Log.d(DEBUGTAG, "OMG2");
             ArrayList<InfoNode> infoNodeList = new ArrayList<InfoNode>();
             URL oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=1&year_num=2015");
             BufferedReader in = new BufferedReader(
@@ -116,10 +104,8 @@ public class MainActivity extends Activity {
         int sessionWebsiteEnd = line.indexOf("<br><i>");
         int sessionForStart = line.indexOf("<i>") + 3;
         int sessionForEnd = line.indexOf("Students <br>");
-//        int sessionForEnd = line.indexOf("</i>");
 
-        InfoNode infoNode = new InfoNode(sessionId, line.substring(sessionNameStart, sessionNameEnd), line.substring(sessionDateStart, sessionDateEnd), line.substring(sessionTimeStart, sessionTimeEnd), line.substring(sessionLocationStart, sessionLocationEnd), line.substring(sessionForStart, sessionForEnd +9).replace("<br>",""));
-        return infoNode;
+        return new InfoNode(sessionId, line.substring(sessionNameStart, sessionNameEnd), line.substring(sessionDateStart, sessionDateEnd), line.substring(sessionTimeStart, sessionTimeEnd), line.substring(sessionLocationStart, sessionLocationEnd), line.substring(sessionForStart, sessionForEnd +9).replace("<br>",""));
     }
 
 
