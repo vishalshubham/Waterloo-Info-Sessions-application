@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
         final ListView list_main = (ListView)findViewById(R.id.main_list);
         final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.wait);
         builder.setMessage(R.string.getting_data);
         final AlertDialog dialog = builder.create();
         dialog.show();
