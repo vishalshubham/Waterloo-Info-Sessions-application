@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="5dp"
     android:background="#FFF">
 
-
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#dddddd"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:paddingLeft="16dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         android:orientation="vertical">
         <TextView
             android:id="@+id/text_session_name"
@@ -34,7 +37,10 @@
             android:layout_height="wrap_content"
             style="@style/style_text_session_for"/>
     </LinearLayout>
-
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#FFBB33"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
