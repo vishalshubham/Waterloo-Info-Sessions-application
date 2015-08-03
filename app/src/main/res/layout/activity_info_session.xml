@@ -1,17 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context="uwinfosessions.uwinfosessions.InfoSessionActivity">
 
     <ListView
-        android:id="@+id/main_list"
+        android:id="@+id/info_session_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:background="#dddddd"
-        android:headerDividersEnabled="true"
-        >
+        android:headerDividersEnabled="true">
     </ListView>
-</RelativeLayout>
+
+</LinearLayout>

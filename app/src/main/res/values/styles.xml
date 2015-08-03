@@ -17,8 +17,7 @@
         <item name="android:textColor">#000</item>
     </style>
 
-    <style name="style_text_session_name"><!--
-        <item name="android:background">#EDA61B</item>-->
+    <style name="style_text_session_name">
         <item name="android:textSize">20dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#000</item>
@@ -41,6 +40,18 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#A6A6A6</item>
     </style>
+
+    <style name="style_text_round">
+        <item name="android:background">@drawable/text_round_corner</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="style_round">
+        <item name="android:background">@drawable/text_round_corner</item>
+    </style>
+
     <style name="style_button_enter">
         <item name="android:background">@drawable/button</item>
         <item name="android:textStyle">bold</item>

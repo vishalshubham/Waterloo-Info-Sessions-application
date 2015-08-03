@@ -2,6 +2,7 @@ package uwinfosessions.uwinfosessions;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,6 +100,11 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         imageLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*ImageView iv = (ImageView)v;
+                iv.setBackgroundColor(Color.parseColor("#FFBB33"));
+                iv.setImageResource(R.drawable.ic_locationsel);
+                iv.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                iv.setImageResource(R.drawable.ic_location);*/
                 Intent i = new Intent(context, MapActivity.class);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
