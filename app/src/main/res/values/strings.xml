@@ -8,4 +8,6 @@
     <string name="wait">Wait</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="enter">Enter</string>
+    <string name="title_activity_info_session">InfoSessionActivity</string>
+    <string name="title_activity_map">MapActivity</string>
 </resources>

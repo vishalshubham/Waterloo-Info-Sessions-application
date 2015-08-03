@@ -12,14 +12,16 @@ public class InfoNode {
     private String sessionTime;
     private String sessionLocation;
     private String sessionFor;
+    private String sessionLine;
 
-    public InfoNode(int sessionId, String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionFor) {
+    public InfoNode(int sessionId, String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionFor, String sessionLine) {
         this.sessionId = sessionId;
         this.sessionName = sessionName;
         this.sessionDate = sessionDate;
         this.sessionTime = sessionTime;
         this.sessionLocation = sessionLocation;
         this.sessionFor = sessionFor;
+        this.sessionLine = sessionLine;
     }
 
     public String getSessionName() {
@@ -68,5 +70,13 @@ public class InfoNode {
 
     public void setSessionFor(String sessionFor) {
         this.sessionFor = sessionFor;
+    }
+
+    public String getSessionLine() {
+        return sessionLine;
+    }
+
+    public void setSessionLine(String sessionLine) {
+        this.sessionLine = sessionLine;
     }
 }

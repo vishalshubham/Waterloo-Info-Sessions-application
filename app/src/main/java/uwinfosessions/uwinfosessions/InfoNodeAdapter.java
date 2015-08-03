@@ -1,6 +1,7 @@
 package uwinfosessions.uwinfosessions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         this.context = context;
         this.infoNodes = infoNodes;
     }
+
     public InfoNodeAdapter(Context context){
         this.context = context;
     }
@@ -39,7 +42,6 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
     public String getSessionName(int position){
         return infoNodes.get(position).getSessionName();
     }
-
     @Override
     public int getCount() {
         return infoNodes.size();
@@ -55,13 +57,17 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         return infoNodes.get(position).getSessionId();
     }
 
+    public String getSessionLine(int position){
+        return infoNodes.get(position).getSessionLine();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.list_info_node, null);
 
         InfoNode infoNode = infoNodes.get(position);
-        String sessionName = infoNode.getSessionName();
+        final String sessionName = infoNode.getSessionName();
         String sessionDate = infoNode.getSessionDate();
         String sessionTime = infoNode.getSessionTime();
         String sessionLocation = infoNode.getSessionLocation();
@@ -82,12 +88,22 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         imageReminder.setImageResource(R.drawable.ic_reminder);
         imageLocation.setImageResource(R.drawable.ic_location);
 
-
         sessionNameView.setText(sessionName);
         sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
         sessionLocationView.setText(sessionLocation);
         sessionForView.setText(sessionFor);
         Log.d(MainActivity.DEBUGTAG, "Setting text and icons");
+
+        imageLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, MapActivity.class);
+                //v.getContext().startActivity(i);
+                context.startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
+            }
+        });
+
         return view;
     }
 }

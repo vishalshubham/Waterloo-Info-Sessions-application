@@ -3,12 +3,15 @@ package uwinfosessions.uwinfosessions;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
@@ -21,14 +24,20 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     public static String DEBUGTAG="VC";
+    public static String WHOLE_LINE = "whole_line";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setInfoNodeList();
         setInfoNodeListListner();
     }
 
     public void setInfoNodeListListner(){
+
+    }
+
+    public void setInfoNodeList(){
         final ListView list_main = (ListView)findViewById(R.id.main_list);
         final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -47,9 +56,21 @@ public class MainActivity extends Activity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 list_main.setAdapter(infoNodeAdapter);
+                list_main.setItemsCanFocus(true);
                 dialog.dismiss();
             }
         }.execute();
+
+        list_main.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+                Log.d(DEBUGTAG, view.toString());
+                Intent i = new Intent(MainActivity.this, InfoSessionActivity.class);
+                i.putExtra(WHOLE_LINE, infoNodeAdapter.getSessionLine(position));
+                startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
+            }
+        });
     }
 
     public List<InfoNode> downloadPage(){
@@ -79,6 +100,9 @@ public class MainActivity extends Activity {
                     if(!infoNode.getSessionName().contains("No info sessions") && !infoNode.getSessionName().contains("New Year")) {
                         infoNodeList.add(infoNode);
                     }
+                    else{
+                        id--;
+                    }
                 }
                 return infoNodeList;
             }
@@ -106,7 +130,7 @@ public class MainActivity extends Activity {
         int sessionForStart = line.indexOf("<i>") + 3;
         int sessionForEnd = line.indexOf("Students <br>");
 
-        return new InfoNode(sessionId, line.substring(sessionNameStart, sessionNameEnd), line.substring(sessionDateStart, sessionDateEnd), line.substring(sessionTimeStart, sessionTimeEnd), line.substring(sessionLocationStart, sessionLocationEnd), line.substring(sessionForStart, sessionForEnd +9).replace("<br>",""));
+        return new InfoNode(sessionId, line.substring(sessionNameStart, sessionNameEnd), line.substring(sessionDateStart, sessionDateEnd), line.substring(sessionTimeStart, sessionTimeEnd), line.substring(sessionLocationStart, sessionLocationEnd), line.substring(sessionForStart, sessionForEnd +9).replace("<br>",""), line);
     }
 
 

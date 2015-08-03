@@ -22,6 +22,14 @@
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash" >
         </activity>
+        <activity
+            android:name=".InfoSessionActivity"
+            android:label="@string/title_activity_info_session" >
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
     </application>
 
 </manifest>
