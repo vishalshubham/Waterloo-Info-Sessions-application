@@ -82,11 +82,13 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         ImageView imageInfo = (ImageView)view.findViewById(R.id.ic_info);
         ImageView imageReminder = (ImageView)view.findViewById(R.id.ic_reminder);
         ImageView imageLocation = (ImageView)view.findViewById(R.id.ic_location);
+        ImageView imageShare = (ImageView)view.findViewById(R.id.ic_share);
 
         imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
         imageReminder.setImageResource(R.drawable.ic_reminder);
         imageLocation.setImageResource(R.drawable.ic_location);
+        imageShare.setImageResource(R.drawable.ic_share);
 
         sessionNameView.setText(sessionName);
         sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
@@ -98,7 +100,6 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, MapActivity.class);
-                //v.getContext().startActivity(i);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
             }
