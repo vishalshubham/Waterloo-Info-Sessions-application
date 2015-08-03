@@ -1,11 +1,16 @@
 package uwinfosessions.uwinfosessions;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public class InfoSessionActivity extends Activity {
@@ -18,6 +23,25 @@ public class InfoSessionActivity extends Activity {
         /*TextView wholeLineTextView = (TextView)findViewById(R.id.text_whole_line);
         wholeLineTextView.setText(line);*/
         InfoNode infoNode = getInfoNode(line);
+
+        setInfoSessionListner(infoNode);
+    }
+
+    public void setInfoSessionListner(InfoNode infoNode){
+
+        TextView textInfoSessionName = (TextView)findViewById(R.id.text_info_session_name);
+        TextView textInfoSessionDate = (TextView)findViewById(R.id.text_info_session_date);
+        TextView textInfoSessionTime = (TextView)findViewById(R.id.text_info_session_time);
+        TextView textInfoSessionLocation = (TextView)findViewById(R.id.text_info_session_location);
+        TextView textInfoSessionWebsite = (TextView)findViewById(R.id.text_info_session_website);
+        TextView textInfoSessionDetails = (TextView)findViewById(R.id.text_info_session_details);
+
+        textInfoSessionName.setText(infoNode.getSessionName());
+        textInfoSessionDate.setText(infoNode.getSessionDate());
+        textInfoSessionTime.setText(infoNode.getSessionTime());
+        textInfoSessionLocation.setText(infoNode.getSessionLocation());
+        textInfoSessionWebsite.setText("Website goes here");
+        textInfoSessionDetails.setText(infoNode.getSessionFor());
     }
 
     public static InfoNode getInfoNode(String line){

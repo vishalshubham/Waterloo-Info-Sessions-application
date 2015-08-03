@@ -29,15 +29,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setInfoNodeList();
-        setInfoNodeListListner();
+        setInfoNodeListner();
     }
 
-    public void setInfoNodeListListner(){
-
-    }
-
-    public void setInfoNodeList(){
+    public void setInfoNodeListner(){
         final ListView list_main = (ListView)findViewById(R.id.main_list);
         final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
