@@ -6,4 +6,6 @@
     <string name="title_activity_start">StartActivity</string>
     <string name="info_sessions">Information Sessions</string>
     <string name="wait">Wait</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="enter">Enter</string>
 </resources>

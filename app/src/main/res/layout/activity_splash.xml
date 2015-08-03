@@ -21,8 +21,13 @@
         android:text="@string/info_sessions"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="25dp"
-        android:shadowDx="@integer/abc_max_action_buttons"
-        android:shadowDy="@integer/abc_max_action_buttons"/>
+        android:textSize="25dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter"
+        android:background="#000"
+        android:textColor="#FFBB33"
+        style="@style/style_button_enter"/>
 
 </LinearLayout>

@@ -19,26 +19,30 @@
 
     <style name="style_text_session_name"><!--
         <item name="android:background">#EDA61B</item>-->
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#000</item>
     </style>
 
     <style name="style_text_session_date_time">
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">15dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#A6A6A6</item>
     </style>
 
     <style name="style_text_session_location">
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">15dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#A6A6A6</item>
     </style>
 
     <style name="style_text_session_for">
-        <item name="android:textSize">11dp</item>
+        <item name="android:textSize">13dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#A6A6A6</item>
+    </style>
+    <style name="style_button_enter">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
