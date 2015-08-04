@@ -44,7 +44,7 @@ public class InfoSessionActivity extends Activity {
         textInfoSessionWebsite.setText("Website goes here");
         textInfoSessionDetails.setText(infoNode.getSessionFor() + getIntent().getStringExtra(MainActivity.WHOLE_LINE));
 
-        textInfoSessionName.setShadowLayer(1, 0, 0, Color.BLACK);
+        textInfoSessionName.setShadowLayer(1.5f, -1, 1, Color.BLACK);
     }
 
     public static InfoNode getInfoNode(String line){

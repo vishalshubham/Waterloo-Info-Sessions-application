@@ -26,19 +26,19 @@
     <style name="style_text_session_date_time">
         <item name="android:textSize">15dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#A6A6A6</item>
+        <item name="android:textColor">#8D8D8D</item>
     </style>
 
     <style name="style_text_session_location">
         <item name="android:textSize">15dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#A6A6A6</item>
+        <item name="android:textColor">#8D8D8D</item>
     </style>
 
     <style name="style_text_session_for">
         <item name="android:textSize">13dp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#A6A6A6</item>
+        <item name="android:textColor">#8D8D8D</item>
     </style>
 
     <style name="style_text_round">
@@ -46,6 +46,29 @@
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="style_info_session_main_value">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="style_info_session_value">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="style_info_session_id">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#8D8D8D</item>
+        <item name="android:padding">7dp</item>
     </style>
 
     <style name="style_round">
