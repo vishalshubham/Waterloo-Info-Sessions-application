@@ -2,6 +2,7 @@ package uwinfosessions.uwinfosessions;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -41,7 +42,9 @@ public class InfoSessionActivity extends Activity {
         textInfoSessionTime.setText(infoNode.getSessionTime());
         textInfoSessionLocation.setText(infoNode.getSessionLocation());
         textInfoSessionWebsite.setText("Website goes here");
-        textInfoSessionDetails.setText(infoNode.getSessionFor());
+        textInfoSessionDetails.setText(infoNode.getSessionFor() + getIntent().getStringExtra(MainActivity.WHOLE_LINE));
+
+        textInfoSessionName.setShadowLayer(1, 0, 0, Color.BLACK);
     }
 
     public static InfoNode getInfoNode(String line){
