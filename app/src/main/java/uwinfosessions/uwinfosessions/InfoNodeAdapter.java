@@ -73,6 +73,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         String sessionTime = infoNode.getSessionTime();
         String sessionLocation = infoNode.getSessionLocation();
         String sessionFor = infoNode.getSessionFor();
+        final String sessionLine = infoNode.getSessionLine();
 
         TextView sessionNameView = (TextView)view.findViewById(R.id.text_session_name);
         TextView sessionDateTimeView = (TextView)view.findViewById(R.id.text_session_date_time);
@@ -100,14 +101,19 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         imageLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*ImageView iv = (ImageView)v;
-                iv.setBackgroundColor(Color.parseColor("#FFBB33"));
-                iv.setImageResource(R.drawable.ic_locationsel);
-                iv.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                iv.setImageResource(R.drawable.ic_location);*/
                 Intent i = new Intent(context, MapActivity.class);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
+            }
+        });
+
+        imageInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, InfoSessionActivity.class);
+                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
+                context.startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Clicked Info on " + sessionName);
             }
         });
 

@@ -71,6 +71,10 @@
         <item name="android:padding">7dp</item>
     </style>
 
+    <style name="style_ic_pressed">
+        <item name="android:background">@drawable/state_pressed</item>
+    </style>
+
     <style name="style_round">
         <item name="android:background">@drawable/text_round_corner</item>
     </style>

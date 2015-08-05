@@ -44,10 +44,10 @@
                 style="@style/style_text_session_for"/>
         </LinearLayout>
         <ImageView
+            android:src="@drawable/ic_right_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
@@ -72,31 +72,36 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/style_ic_pressed"/>
         <ImageView
             android:id="@+id/ic_info"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/style_ic_pressed"/>
         <ImageView
             android:id="@+id/ic_reminder"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/style_ic_pressed"/>
         <ImageView
             android:id="@+id/ic_location"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/style_ic_pressed"/>
         <ImageView
             android:id="@+id/ic_share"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/style_ic_pressed"/>
     </LinearLayout>
 
 </LinearLayout>
