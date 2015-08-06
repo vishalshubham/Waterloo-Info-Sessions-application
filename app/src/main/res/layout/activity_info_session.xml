@@ -23,7 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#FFF">
+                android:background="#FFF"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -43,7 +45,7 @@
                         style="@style/style_info_session_main_value"/>
                 </LinearLayout>
 
-                <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
+                <!--<View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#0099CC" android:paddingLeft="16dp" android:paddingRight="16dp"/>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -63,7 +65,7 @@
                         style="@style/style_info_session_main_value"/>
                 </LinearLayout>
 
-                <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
+                <!--<View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#0099CC" android:paddingLeft="16dp" android:paddingRight="16dp"/>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                         style="@style/style_info_session_main_value"/>
                 </LinearLayout>
 
-                <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
+                <!--<View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#0099CC" android:paddingLeft="16dp" android:paddingRight="16dp"/>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,7 +105,7 @@
                         style="@style/style_info_session_main_value"/>
                 </LinearLayout>
 
-                <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
+                <!--<View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#0099CC" android:paddingLeft="16dp" android:paddingRight="16dp"/>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,6 +124,20 @@
                         android:layout_height="wrap_content"
                         style="@style/style_info_session_main_value" />
                 </LinearLayout>
+
+                <View android:layout_width="wrap_content" android:layout_height="8dp" android:background="#FFF"/>
+
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#dddddd"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFF"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp">
 
                 <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
 

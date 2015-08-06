@@ -100,12 +100,12 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         sessionForView.setText(sessionFor);
         Log.d(MainActivity.DEBUGTAG, "Setting text and icons");
 
-        imageLocation.setOnClickListener(new View.OnClickListener() {
+        imageFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, MapActivity.class);
-                context.startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
+                ImageView image = (ImageView) v;
+                image.setImageResource(R.drawable.ic_favsel);
+
             }
         });
 
@@ -116,6 +116,15 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Info on " + sessionName);
+            }
+        });
+
+        imageLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, MapActivity.class);
+                context.startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
             }
         });
 
