@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +90,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
 
         imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
-        imageReminder.setImageResource(R.drawable.ic_reminder);
+        imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         imageLocation.setImageResource(R.drawable.ic_location);
         imageShare.setImageResource(R.drawable.ic_share);
         imageRightArrow.setImageResource(R.drawable.ic_right_arrow);
@@ -105,7 +106,9 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 ImageView image = (ImageView) v;
                 image.setImageResource(R.drawable.ic_favsel);
-
+                Toast toast = Toast.makeText(context,  sessionName + " saved as your favourite session!", Toast.LENGTH_LONG);
+                //toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
             }
         });
 
@@ -116,6 +119,17 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Info on " + sessionName);
+            }
+        });
+
+        imageReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView image = (ImageView) v;
+                image.setImageResource(R.drawable.ic_reminder_sel);
+                Toast toast = Toast.makeText(context, "Reminder set for " + sessionName + " session!", Toast.LENGTH_LONG);
+                //toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
             }
         });
 
