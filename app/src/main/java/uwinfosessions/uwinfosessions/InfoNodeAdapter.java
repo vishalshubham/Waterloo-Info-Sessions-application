@@ -85,12 +85,14 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         ImageView imageReminder = (ImageView)view.findViewById(R.id.ic_reminder);
         ImageView imageLocation = (ImageView)view.findViewById(R.id.ic_location);
         ImageView imageShare = (ImageView)view.findViewById(R.id.ic_share);
+        ImageView imageRightArrow = (ImageView)view.findViewById(R.id.ic_right_arrow);
 
         imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
         imageReminder.setImageResource(R.drawable.ic_reminder);
         imageLocation.setImageResource(R.drawable.ic_location);
         imageShare.setImageResource(R.drawable.ic_share);
+        imageRightArrow.setImageResource(R.drawable.ic_right_arrow);
 
         sessionNameView.setText(sessionName);
         sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
@@ -114,6 +116,16 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Info on " + sessionName);
+            }
+        });
+
+        imageRightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, InfoSessionActivity.class);
+                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
+                context.startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
             }
         });
 
