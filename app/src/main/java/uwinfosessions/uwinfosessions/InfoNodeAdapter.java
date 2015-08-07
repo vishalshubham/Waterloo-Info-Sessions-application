@@ -159,13 +159,10 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareString = sessionName + " is visiting our campus on " + sessionDate + "between " + sessionTime + "at " + sessionLocation + ". Let's try to go to the session" + "\n \n \n" + "For more details, install UW Info App on your android mobile.";
+                String shareString = sessionName + " is visiting our campus on " + sessionDate + " between " + sessionTime + " at " + sessionLocation + ". Let's try to go to the session" + "\n \n \n" + "For more details, install UW Info App on your android mobile.";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, sessionName + " coming here!");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareString);
                 context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
-                /*Intent i = new Intent(context, InfoSessionActivity.class);
-                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
-                context.startActivity(i);*/
                 Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });

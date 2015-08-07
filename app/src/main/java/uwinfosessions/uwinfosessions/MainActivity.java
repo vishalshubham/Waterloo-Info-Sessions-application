@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    public static String DEBUGTAG="VC";
+    public static String DEBUGTAG = "VC";
     public static String WHOLE_LINE = "whole_line";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
             }
         }.execute();
 
-        /*list_main.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list_main.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
                 Log.d(DEBUGTAG, view.toString());
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
                 startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
             }
-        });*/
+        });
     }
 
     public List<InfoNode> downloadPage(){

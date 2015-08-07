@@ -16,7 +16,8 @@
         android:paddingRight="16dp"
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        style="@style/style_ic_pressed">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
