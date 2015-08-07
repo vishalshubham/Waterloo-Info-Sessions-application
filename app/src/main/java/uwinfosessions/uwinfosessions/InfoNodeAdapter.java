@@ -70,10 +70,10 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
 
         InfoNode infoNode = infoNodes.get(position);
         final String sessionName = infoNode.getSessionName();
-        String sessionDate = infoNode.getSessionDate();
-        String sessionTime = infoNode.getSessionTime();
-        String sessionLocation = infoNode.getSessionLocation();
-        String sessionFor = infoNode.getSessionFor();
+        final String sessionDate = infoNode.getSessionDate();
+        final String sessionTime = infoNode.getSessionTime();
+        final String sessionLocation = infoNode.getSessionLocation();
+        final String sessionFor = infoNode.getSessionFor();
         final String sessionLine = infoNode.getSessionLine();
 
         TextView sessionNameView = (TextView)view.findViewById(R.id.text_session_name);
@@ -106,7 +106,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 ImageView image = (ImageView) v;
                 image.setImageResource(R.drawable.ic_favsel);
-                Toast toast = Toast.makeText(context,  sessionName + " saved as your favourite session!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!", Toast.LENGTH_LONG);
                 //toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
@@ -142,6 +142,8 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             }
         });
 
+
+
         imageRightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +151,22 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
+            }
+        });
+
+        imageShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareString = sessionName + " is visiting our campus on " + sessionDate + "between " + sessionTime + "at " + sessionLocation + ". Let's try to go to the session" + "\n \n \n" + "For more details, install UW Info App on your android mobile.";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, sessionName + " coming here!");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareString);
+                context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                /*Intent i = new Intent(context, InfoSessionActivity.class);
+                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
+                context.startActivity(i);*/
+                Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });
 
