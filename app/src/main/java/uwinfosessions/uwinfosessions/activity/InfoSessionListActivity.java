@@ -17,7 +17,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
     public TabsPagerAdapter tabAdapter;
     public ActionBar actionBar;
 
-    private String[] tabs = { "All", "Today", "Favourites", "Reminders" };
+    private String[] tabs = { "All", "Today", "Favourite", "Reminder" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,25 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         for(String tab_name : tabs){
-            actionBar.addTab(actionBar.newTab().setText(tab_name).setTabListener(this));
+            ActionBar.Tab tab = actionBar.newTab().setText(tab_name).setTabListener(this);
+            //tab.setIcon(R.drawable.ic_favunsel);
+            actionBar.addTab(tab);
         }
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
     @Override
@@ -60,7 +77,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-
+        viewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override

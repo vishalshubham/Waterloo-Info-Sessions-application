@@ -44,6 +44,21 @@
     <style name="CustomActionBarTheme"
         parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabBarStyle">@style/MyTheme.ActionBar.TabBar</item>
+        <item name="android:actionBarTabStyle">@style/MyTheme.ActionBar.TabView</item>
+        <item name="android:actionBarTabTextStyle">@style/MyTheme.ActionBar.TabText</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TabBar" parent="android:style/Widget.Holo.Light.ActionBar.TabBar">
+        <item name="android:background">#FFBB33</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TabView" parent="android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/state_pressed_tabs</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">#FFF</item>
     </style>
 
     <!-- - ActionBar styles - -->
