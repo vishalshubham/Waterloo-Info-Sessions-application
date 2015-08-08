@@ -36,6 +36,7 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(DEBUGTAG, "Error checking internet connection-----");
         if(hasActiveInternetConnection(this)){
             setContentView(R.layout.activity_main);
             setInfoNodeListner();
@@ -56,7 +57,7 @@ public class MainActivity extends Activity{
                 Toast.makeText(context, "Connected to the server", Toast.LENGTH_LONG).show();
                 return (urlc.getResponseCode() == 200);
             } catch (IOException e) {
-                Log.e(DEBUGTAG, "Error checking internet connection", e);
+                Log.d(DEBUGTAG, "Error checking internet connection");
                 Toast.makeText(context, "Sorry but there is some problem accessing Internet", Toast.LENGTH_LONG).show();
             }
         } else {
