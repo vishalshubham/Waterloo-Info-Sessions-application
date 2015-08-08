@@ -22,12 +22,12 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="25dp"/>
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enter"
-        android:background="#000"
-        android:textColor="#FFBB33"
-        style="@style/style_button_enter"/>
+        android:text="@string/no_connection"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
 
 </LinearLayout>

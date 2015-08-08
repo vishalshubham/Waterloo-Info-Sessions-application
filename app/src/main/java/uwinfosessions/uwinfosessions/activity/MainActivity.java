@@ -2,7 +2,10 @@ package uwinfosessions.uwinfosessions.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,9 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +36,41 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setInfoNodeListner();
+        if(hasActiveInternetConnection(this)){
+            setContentView(R.layout.activity_main);
+            setInfoNodeListner();
+        }
+        else{
+            setContentView(R.layout.activity_splash);
+        }
+    }
+
+    public boolean hasActiveInternetConnection(Context context) {
+        if (isNetworkAvailable(context)) {
+            try {
+                HttpURLConnection urlc = (HttpURLConnection) (new URL("http://www.google.com").openConnection());
+                urlc.setRequestProperty("User-Agent", "Test");
+                urlc.setRequestProperty("Connection", "close");
+                urlc.setConnectTimeout(1500);
+                urlc.connect();
+                Toast.makeText(context, "Connected to the server", Toast.LENGTH_LONG).show();
+                return (urlc.getResponseCode() == 200);
+            } catch (IOException e) {
+                Log.e(DEBUGTAG, "Error checking internet connection", e);
+                Toast.makeText(context, "Sorry but there is some problem accessing Internet", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Log.d(DEBUGTAG, "No network available!");
+            Toast.makeText(context, "Sorry but you don't have Internet Access", Toast.LENGTH_LONG).show();
+        }
+        return false;
+    }
+
+    private boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null;
     }
 
     public void setInfoNodeListner(){
