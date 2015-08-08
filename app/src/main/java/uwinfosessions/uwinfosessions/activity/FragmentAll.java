@@ -59,6 +59,17 @@ public class FragmentAll extends Fragment {
                 dialog.dismiss();
             }
         }.execute();
+
+        list_main.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+                Log.d(DEBUGTAG, view.toString());
+                Intent i = new Intent(getActivity(), InfoSessionActivity.class);
+                i.putExtra(WHOLE_LINE, infoNodeAdapter.getSessionLine(position));
+                startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
+            }
+        });
     }
 
     public List<InfoNode> downloadPage(){
