@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="720dp"
     android:layout_height="524dp"
-    tools:context="uwinfosessions.uwinfosessions.MapActivity">
+    tools:context="uwinfosessions.uwinfosessions.activity.MapActivity">
 
     <ImageView
         android:src="@drawable/map"

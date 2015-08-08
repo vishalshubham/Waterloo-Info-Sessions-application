@@ -11,4 +11,5 @@
     <string name="title_activity_info_session">Info Session Details</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="action_setting">Setting</string>
+    <string name="title_activity_info_session_list">InfoSessionListActivity</string>
 </resources>

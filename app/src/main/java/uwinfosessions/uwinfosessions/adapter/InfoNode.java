@@ -1,4 +1,4 @@
-package uwinfosessions.uwinfosessions;
+package uwinfosessions.uwinfosessions.adapter;
 
 import android.widget.ImageView;
 

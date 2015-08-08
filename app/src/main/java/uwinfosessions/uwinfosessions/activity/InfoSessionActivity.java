@@ -1,17 +1,14 @@
-package uwinfosessions.uwinfosessions;
+package uwinfosessions.uwinfosessions.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.graphics.Color;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import uwinfosessions.uwinfosessions.R;
+import uwinfosessions.uwinfosessions.adapter.InfoNode;
 
 
 public class InfoSessionActivity extends Activity {

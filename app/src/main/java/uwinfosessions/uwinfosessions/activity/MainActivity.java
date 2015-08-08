@@ -1,11 +1,9 @@
-package uwinfosessions.uwinfosessions;
+package uwinfosessions.uwinfosessions.activity;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,8 +18,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import uwinfosessions.uwinfosessions.R;
+import uwinfosessions.uwinfosessions.adapter.InfoNode;
+import uwinfosessions.uwinfosessions.adapter.InfoNodeAdapter;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends Activity{
 
     public static String DEBUGTAG = "VC";
     public static String WHOLE_LINE = "whole_line";

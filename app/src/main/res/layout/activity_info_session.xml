@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#dddddd"
-    tools:context="uwinfosessions.uwinfosessions.InfoSessionActivity">
+    tools:context="uwinfosessions.uwinfosessions.activity.InfoSessionActivity">
 
     <ScrollView
         android:layout_height="match_parent"

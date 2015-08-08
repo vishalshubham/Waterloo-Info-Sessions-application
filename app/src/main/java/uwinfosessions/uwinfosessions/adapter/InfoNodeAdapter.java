@@ -1,10 +1,8 @@
-package uwinfosessions.uwinfosessions;
+package uwinfosessions.uwinfosessions.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+
+import uwinfosessions.uwinfosessions.activity.InfoSessionActivity;
+import uwinfosessions.uwinfosessions.activity.MainActivity;
+import uwinfosessions.uwinfosessions.activity.MapActivity;
+import uwinfosessions.uwinfosessions.R;
 
 /**
  * Created by Vishal on 21/07/2015.
@@ -142,9 +145,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             }
         });
 
-
-
-        imageRightArrow.setOnClickListener(new View.OnClickListener() {
+        /*imageRightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, InfoSessionActivity.class);
@@ -152,7 +153,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 context.startActivity(i);
                 Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
             }
-        });
+        });*/
 
         imageShare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +163,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 String shareString = sessionName + " is visiting our campus on " + sessionDate + " between " + sessionTime + " at " + sessionLocation + ". Let's try to go to the session" + "\n \n \n" + "For more details, install UW Info App on your android mobile.";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, sessionName + " coming here!");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareString);
-                context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                context.startActivity(Intent.createChooser(sharingIntent, "Share " + sessionName + " via"));
                 Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });
