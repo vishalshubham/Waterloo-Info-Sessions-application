@@ -29,6 +29,7 @@ public class FragmentAll extends Fragment {
 
     public static String DEBUGTAG = "VC";
     public static String WHOLE_LINE = "whole_line";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_all, container, false);
