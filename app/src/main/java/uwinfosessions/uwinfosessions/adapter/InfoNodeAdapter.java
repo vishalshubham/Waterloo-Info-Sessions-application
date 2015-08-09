@@ -71,7 +71,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.list_info_node, null);
 
-        InfoNode infoNode = infoNodes.get(position);
+        final InfoNode infoNode = infoNodes.get(position);
         final String sessionName = infoNode.getSessionName();
         final String sessionDate = infoNode.getSessionDate();
         final String sessionTime = infoNode.getSessionTime();
@@ -107,8 +107,10 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         imageFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Database db = new Database(context);
                 ImageView image = (ImageView) v;
                 image.setImageResource(R.drawable.ic_favsel);
+                db.storeFavSession(infoNode);
                 Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!", Toast.LENGTH_LONG);
                 //toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();

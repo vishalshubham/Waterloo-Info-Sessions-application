@@ -25,12 +25,19 @@ public class InfoNode {
     }
 
     public InfoNode(String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionFor, String sessionLine) {
-        this.sessionId = sessionId;
         this.sessionName = sessionName;
         this.sessionDate = sessionDate;
         this.sessionTime = sessionTime;
         this.sessionLocation = sessionLocation;
         this.sessionFor = sessionFor;
+        this.sessionLine = sessionLine;
+    }
+
+    public InfoNode(String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionLine) {
+        this.sessionName = sessionName;
+        this.sessionDate = sessionDate;
+        this.sessionTime = sessionTime;
+        this.sessionLocation = sessionLocation;
         this.sessionLine = sessionLine;
     }
 
