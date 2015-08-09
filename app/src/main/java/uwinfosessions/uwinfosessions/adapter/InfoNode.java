@@ -33,14 +33,6 @@ public class InfoNode {
         this.sessionLine = sessionLine;
     }
 
-    public InfoNode(String sessionName, String sessionDate, String sessionTime, String sessionLocation, String sessionLine) {
-        this.sessionName = sessionName;
-        this.sessionDate = sessionDate;
-        this.sessionTime = sessionTime;
-        this.sessionLocation = sessionLocation;
-        this.sessionLine = sessionLine;
-    }
-
     public String getSessionName() {
         return sessionName;
     }

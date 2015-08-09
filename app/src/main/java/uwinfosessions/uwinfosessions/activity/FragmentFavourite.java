@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import uwinfosessions.uwinfosessions.R;
@@ -26,8 +25,7 @@ import uwinfosessions.uwinfosessions.adapter.InfoNodeAdapter;
 public class FragmentFavourite extends Fragment {
 
     public static String DEBUGTAG = "VC";
-    public static String WHOLE_LINE = "whole_line";/*
-    private Database db = new Database(getActivity());*/
+    public static String WHOLE_LINE = "whole_line";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

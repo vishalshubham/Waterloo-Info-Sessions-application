@@ -130,8 +130,10 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         imageReminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Database db = new Database(context);
                 ImageView image = (ImageView) v;
                 image.setImageResource(R.drawable.ic_reminder_sel);
+                db.storeRemSession(infoNode);
                 Toast toast = Toast.makeText(context, "Reminder set for " + sessionName + " session!", Toast.LENGTH_LONG);
                 //toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                 toast.show();
@@ -147,16 +149,6 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             }
         });
 
-        /*imageRightArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, InfoSessionActivity.class);
-                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
-                context.startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
-            }
-        });*/
-
         imageShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,6 +161,16 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });
+
+        /*imageRightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, InfoSessionActivity.class);
+                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
+                context.startActivity(i);
+                Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
+            }
+        });*/
 
         return view;
     }

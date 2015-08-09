@@ -23,6 +23,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String COL_S_DATE = "S_DATE";
     private static final String COL_S_TIME = "S_TIME";
     private static final String COL_S_LOCN = "S_LOCN";
+    private static final String COL_S_FOR = "S_FOR";
     private static final String COL_S_LINE = "S_LINE";
 
     public Database(Context context) {
@@ -31,9 +32,9 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = String.format("create table %s (%s VARCHAR PRIMARY KEY, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL)", FAV_TABLE, COL_S_NAME, COL_S_DATE, COL_S_TIME, COL_S_LOCN, COL_S_LINE);
+        String sql = String.format("create table %s (%s VARCHAR PRIMARY KEY, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL)", FAV_TABLE, COL_S_NAME, COL_S_DATE, COL_S_TIME, COL_S_LOCN, COL_S_FOR, COL_S_LINE);
         db.execSQL(sql);
-        sql = String.format("create table %s (%s VARCHAR PRIMARY KEY, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL)", REM_TABLE, COL_S_NAME, COL_S_DATE, COL_S_TIME, COL_S_LOCN, COL_S_LINE);
+        sql = String.format("create table %s (%s VARCHAR PRIMARY KEY, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL, %s VARCHAR NOT NULL)", REM_TABLE, COL_S_NAME, COL_S_DATE, COL_S_TIME, COL_S_LOCN, COL_S_FOR, COL_S_LINE);
         db.execSQL(sql);
     }
 
@@ -51,6 +52,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COL_S_DATE, infoNode.getSessionDate());
         values.put(COL_S_TIME, infoNode.getSessionTime());
         values.put(COL_S_LOCN, infoNode.getSessionLocation());
+        values.put(COL_S_FOR, infoNode.getSessionFor());
         values.put(COL_S_LINE, infoNode.getSessionLine());
 
         db.insert(FAV_TABLE, null, values);
@@ -66,6 +68,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COL_S_DATE, infoNode.getSessionDate());
         values.put(COL_S_TIME, infoNode.getSessionTime());
         values.put(COL_S_LOCN, infoNode.getSessionLocation());
+        values.put(COL_S_FOR, infoNode.getSessionFor());
         values.put(COL_S_LINE, infoNode.getSessionLine());
 
         db.insert(REM_TABLE, null, values);
@@ -113,9 +116,10 @@ public class Database extends SQLiteOpenHelper {
             String date = cursor.getString(1);
             String time = cursor.getString(2);
             String locn = cursor.getString(3);
-            String line = cursor.getString(4);
+            String forr = cursor.getString(4);
+            String line = cursor.getString(5);
 
-            infoNodeList.add(new InfoNode(name, date, time, locn, line));
+            infoNodeList.add(new InfoNode(name, date, time, locn, forr, line));
         }
         db.close();
         return infoNodeList;
@@ -134,9 +138,10 @@ public class Database extends SQLiteOpenHelper {
             String date = cursor.getString(1);
             String time = cursor.getString(2);
             String locn = cursor.getString(3);
-            String line = cursor.getString(4);
+            String forr = cursor.getString(4);
+            String line = cursor.getString(5);
 
-            infoNodeList.add(new InfoNode(name, date, time, locn, line));
+            infoNodeList.add(new InfoNode(name, date, time, locn, forr, line));
         }
         db.close();
         return infoNodeList;
