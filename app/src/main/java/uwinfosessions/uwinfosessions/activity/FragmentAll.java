@@ -3,6 +3,7 @@ package uwinfosessions.uwinfosessions.activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uwinfosessions.uwinfosessions.R;
+import uwinfosessions.uwinfosessions.adapter.Database;
 import uwinfosessions.uwinfosessions.adapter.InfoNode;
 import uwinfosessions.uwinfosessions.adapter.InfoNodeAdapter;
 

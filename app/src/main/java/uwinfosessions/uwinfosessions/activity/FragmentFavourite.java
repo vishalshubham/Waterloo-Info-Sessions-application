@@ -26,8 +26,8 @@ import uwinfosessions.uwinfosessions.adapter.InfoNodeAdapter;
 public class FragmentFavourite extends Fragment {
 
     public static String DEBUGTAG = "VC";
-    public static String WHOLE_LINE = "whole_line";
-    private Database db = new Database(getActivity());
+    public static String WHOLE_LINE = "whole_line";/*
+    private Database db = new Database(getActivity());*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class FragmentFavourite extends Fragment {
     public void setInfoNodeListner(View view){
         final ListView list_main = (ListView)view.findViewById(R.id.main_list);
         final InfoNodeAdapter infoNodeAdapter = new InfoNodeAdapter(getActivity());
+        final Database db = new Database(getActivity());
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.wait);
         builder.setMessage(R.string.getting_data);

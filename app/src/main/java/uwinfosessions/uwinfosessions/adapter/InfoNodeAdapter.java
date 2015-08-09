@@ -111,7 +111,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 ImageView image = (ImageView) v;
                 image.setImageResource(R.drawable.ic_favsel);
                 db.storeFavSession(infoNode);
-                Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!" + context.toString() + ":", Toast.LENGTH_LONG);
                 //toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
