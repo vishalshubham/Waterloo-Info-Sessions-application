@@ -52,6 +52,7 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
+                        android:textStyle="bold"
                         style="@style/style_info_session_main_value"/>
                 </LinearLayout>
 

@@ -13,8 +13,8 @@
     <string name="action_setting">Setting</string>
     <string name="title_activity_info_session_list">Info Sessions</string>
     <string name="no_connection">No Internet Connection</string>
-    <string name="text_overview">Overview:</string>
-    <string name="text_details">Details:</string>
+    <string name="text_overview">Overview</string>
+    <string name="text_details">Details</string>
     <string name="coop">Co op</string>
     <string name="graduate">Graduating</string>
 </resources>
