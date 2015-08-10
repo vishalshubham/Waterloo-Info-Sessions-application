@@ -3,8 +3,10 @@ package uwinfosessions.uwinfosessions.activity;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import uwinfosessions.uwinfosessions.R;
@@ -34,12 +36,46 @@ public class InfoSessionActivity extends Activity {
         TextView textInfoSessionWebsite = (TextView)findViewById(R.id.text_info_session_website);
         TextView textInfoSessionDetails = (TextView)findViewById(R.id.text_info_session_details);
 
+        ImageView imgCoop = (ImageView)findViewById(R.id.img_coop_yes_no);
+        ImageView imgGraduate = (ImageView)findViewById(R.id.img_graduate_yes_no);
+
         textInfoSessionName.setText(infoNode.getSessionName());
         textInfoSessionDate.setText(infoNode.getSessionDate());
         textInfoSessionTime.setText(infoNode.getSessionTime());
         textInfoSessionLocation.setText(infoNode.getSessionLocation());
         textInfoSessionWebsite.setText("Website goes here");
         textInfoSessionDetails.setText(infoNode.getSessionFor() + getIntent().getStringExtra(MainActivity.WHOLE_LINE));
+
+        boolean flag1=true;
+        boolean flag2=true;
+        Log.d(InfoSessionListActivity.DEBUGTAG, "For: " + infoNode.getSessionFor());
+        if(infoNode.getSessionFor().indexOf("Co-op")!=-1){
+            imgCoop.setImageResource(R.drawable.ic_yes);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "1:--------------------------- ");
+        }
+        else{
+            imgCoop.setImageResource(R.drawable.ic_no);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "2:--------------------------- ");
+            flag1=false;
+        }
+
+        if(infoNode.getSessionFor().indexOf("Graduat")!=-1) {
+            imgGraduate.setImageResource(R.drawable.ic_yes);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "3:--------------------------- ");
+        }
+        else{
+            imgGraduate.setImageResource(R.drawable.ic_no);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "4:--------------------------- ");
+            flag2=false;
+        }
+
+        if(flag1==false && flag2 == false){
+            imgCoop.setImageResource(R.drawable.ic_yes);
+            imgGraduate.setImageResource(R.drawable.ic_yes);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "5:--------------------------- ");
+        }
+
+
 
         textInfoSessionName.setShadowLayer(1.5f, -1, 1, Color.BLACK);
     }
