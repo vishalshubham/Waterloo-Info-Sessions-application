@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UW Info Sessions</string>
+    <string name="app_name">Info Sessions</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="getting_data">Getting Data ...</string>
@@ -8,9 +8,13 @@
     <string name="wait">Wait</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="enter">Enter</string>
-    <string name="title_activity_info_session">Info Session Details</string>
-    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_info_session">Info Sessions</string>
+    <string name="title_activity_map">Info Sessions</string>
     <string name="action_setting">Setting</string>
-    <string name="title_activity_info_session_list">Information Sessions</string>
+    <string name="title_activity_info_session_list">Info Sessions</string>
     <string name="no_connection">No Internet Connection</string>
+    <string name="text_overview">Overview:</string>
+    <string name="text_details">Details:</string>
+    <string name="coop">Co op</string>
+    <string name="graduate">Graduating</string>
 </resources>

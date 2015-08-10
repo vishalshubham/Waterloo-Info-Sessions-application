@@ -114,13 +114,27 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#000</item>
         <item name="android:paddingTop">7dp</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">left</item>
     </style>
 
     <style name="style_info_session_id">
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#8D8D8D</item>
+        <item name="android:paddingTop">7dp</item>
+    </style>
+
+    <style name="style_info_session_overview_details">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:background">#FFF</item>
+    </style>
+
+    <style name="style_coop_graduate">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#000</item>
         <item name="android:paddingTop">7dp</item>
     </style>
 

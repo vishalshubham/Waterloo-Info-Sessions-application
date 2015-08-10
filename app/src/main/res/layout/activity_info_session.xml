@@ -19,6 +19,16 @@
 
             <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#dddddd"/>
 
+            <TextView
+                android:id="@+id/text_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/text_overview"
+                style="@style/style_info_session_overview_details"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
                         android:text="Employer"
@@ -92,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Location"
@@ -131,6 +141,16 @@
 
             <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#dddddd"/>
 
+            <TextView
+                android:id="@+id/text_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/text_details"
+                style="@style/style_info_session_overview_details"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,25 +159,62 @@
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp">
 
-                <View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>
+                <!--<View android:layout_width="wrap_content" android:layout_height="1dp" android:background="#FFF"/>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_width="match_parent"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/img_coop_yes_no"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/coop"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            style="@style/style_coop_graduate"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Details"
-                        style="@style/style_info_session_id"/>
-                    <TextView
                         android:layout_weight="1"
-                        android:id="@+id/text_info_session_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/style_info_session_value" />
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/img_graduate_yes_no"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/graduate"
+                            style="@style/style_coop_graduate" />
+                    </LinearLayout>
                 </LinearLayout>
+
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    style="@style/style_info_session_id"/>
+                <TextView
+                    android:id="@+id/text_info_session_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/style_info_session_value" />
 
             </LinearLayout>
 
