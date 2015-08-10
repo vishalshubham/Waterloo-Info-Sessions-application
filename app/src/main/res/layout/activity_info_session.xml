@@ -173,7 +173,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:id="@+id/img_coop_yes_no"/>
+                            android:id="@+id/img_coop_yes_no"
+                            style="@style/style_ic_coop_graduate"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -190,7 +191,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/img_graduate_yes_no"/>
+                            android:id="@+id/img_graduate_yes_no"
+                            style="@style/style_ic_coop_graduate"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -204,12 +206,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                </LinearLayout>-->
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Details"
-                    style="@style/style_info_session_id"/>
+                    style="@style/style_info_session_id"/>-->
                 <TextView
                     android:id="@+id/text_info_session_details"
                     android:layout_width="match_parent"
