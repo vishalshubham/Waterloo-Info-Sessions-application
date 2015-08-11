@@ -17,4 +17,25 @@
     <string name="text_details">Details</string>
     <string name="coop">Co op</string>
     <string name="graduate">Graduating</string>
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close Navigation Drawer</string>
+
+    <string-array name="string_menu_options">
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+        <item>Calendar</item>
+        <item>Campus Map</item>
+    </string-array>
 </resources>
