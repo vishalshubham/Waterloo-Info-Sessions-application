@@ -9,5 +9,4 @@
     android:textColor="#FFF"
     android:background="?android:attr/activatedBackgroundIndicator"
     android:minHeight="?android:attr/listPreferredItemHeightSmall">
-
 </TextView>
