@@ -1,7 +1,11 @@
 package uwinfosessions.uwinfosessions.activity;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -9,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +22,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import uwinfosessions.uwinfosessions.R;
@@ -30,6 +36,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
     public TabsPagerAdapter tabAdapter;
     public ActionBar actionBar;
     public float actionBarHeight;
+
 
     DrawerLayout drawerLayout;
     ListView drawerListView;
@@ -69,7 +76,40 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String[] menu_options = getResources().getStringArray(R.array.string_menu_options);
-                Toast.makeText(InfoSessionListActivity.this, "Clicked "+ position, Toast.LENGTH_LONG).show();
+                switch(position){
+                    case 0:
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this);
+                        builder.setTitle(R.string.select_calendar);
+                        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        View v = inflater.inflate(R.layout.layout_alert_calendar, null);
+                        builder.setView(v);
+
+                        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        //builder.setMessage(R.string.getting_data);
+                        //final AlertDialog dialog = builder.create();
+                        builder.show();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        break;
+                }
+
             }
         });
 
