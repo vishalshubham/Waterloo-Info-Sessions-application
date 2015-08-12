@@ -29,7 +29,7 @@
         <item>Feedback</item>
     </string-array>
 
-    <string-array name="string_months">
+    <string-array name="string_calendar">
         <item>January</item>
         <item>February</item>
         <item>March</item>

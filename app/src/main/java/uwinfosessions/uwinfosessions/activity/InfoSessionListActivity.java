@@ -22,6 +22,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -75,7 +76,6 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
         drawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //String[] menu_options = getResources().getStringArray(R.array.string_menu_options);
                 switch(position){
                     case 0:
                         AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this);
@@ -83,11 +83,12 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View v = inflater.inflate(R.layout.layout_alert_calendar, null);
                         builder.setView(v);
+                        final Spinner spinner = (Spinner)v.findViewById(R.id.spinner_calendar);
 
                         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                Toast.makeText(InfoSessionListActivity.this, "Checked "+ spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
                             }
                         });
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -96,9 +97,23 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
                             }
                         });
-                        //builder.setMessage(R.string.getting_data);
-                        //final AlertDialog dialog = builder.create();
                         builder.show();
+
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(InfoSessionListActivity.this, R.array.string_calendar, android.R.layout.simple_spinner_item);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinner.setAdapter(adapter);
+                        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+
                         break;
                     case 1:
                         break;
@@ -116,8 +131,6 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
         viewPager = (ViewPager)findViewById(R.id.pager);
         tabAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         actionBar = getActionBar();
-
-        /*viewPager.getViewTreeObserver().addOnScrollChangedListener(this);*/
 
         viewPager.setAdapter(tabAdapter);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -187,17 +200,4 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
-
-    /*@Override
-    public void onScrollChanged() {
-        float y = viewPager.findViewById(R.id.main_list).getScrollY();
-        Log.d(DEBUGTAG,"1----------------------------" + actionBarHeight + " y=" + y);
-        if (y >= actionBarHeight && actionBar.isShowing()) {
-            Log.d(DEBUGTAG,"2----------------------------" + actionBarHeight);
-            actionBar.hide();
-        } else if ( y<0 && !actionBar.isShowing()) {
-            Log.d(DEBUGTAG,"3----------------------------" + actionBarHeight);
-            actionBar.show();
-        }
-    }*/
 }

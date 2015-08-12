@@ -4,17 +4,11 @@
     android:layout_height="match_parent">
 
     <Spinner
-        android:id="@+id/spinner_calendar_months"
-        android:layout_width="fill_parent"
+        android:id="@+id/spinner_calendar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@array/string_months">
-    </Spinner>
-
-    <Spinner
-        android:id="@+id/spinner_calendar_years"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@array/string_years">
+        android:padding="16dp"
+        android:prompt="@array/string_calendar">
     </Spinner>
 
 </LinearLayout>
