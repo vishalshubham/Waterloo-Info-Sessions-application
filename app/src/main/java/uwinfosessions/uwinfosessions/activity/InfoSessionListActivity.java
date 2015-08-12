@@ -73,22 +73,52 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
         drawerListView.setAdapter(adapter);
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        viewPager = (ViewPager)findViewById(R.id.pager);
+        tabAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+        actionBar = getActionBar();
+
+        viewPager.setAdapter(tabAdapter);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        for(String tab_name : tabs){
+            ActionBar.Tab tab = actionBar.newTab().setText(tab_name).setTabListener(this);
+            actionBar.addTab(tab);
+        }
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
+
+
         drawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
+                switch (position) {
                     case 0:
                         AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this);
                         builder.setTitle(R.string.select_calendar);
-                        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View v = inflater.inflate(R.layout.layout_alert_calendar, null);
                         builder.setView(v);
-                        final Spinner spinner = (Spinner)v.findViewById(R.id.spinner_calendar);
+                        final Spinner spinner = (Spinner) v.findViewById(R.id.spinner_calendar);
 
                         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(InfoSessionListActivity.this, "Checked "+ spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(InfoSessionListActivity.this, "Checked " + spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
                             }
                         });
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -125,34 +155,6 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         break;
                 }
 
-            }
-        });
-
-        viewPager = (ViewPager)findViewById(R.id.pager);
-        tabAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-        actionBar = getActionBar();
-
-        viewPager.setAdapter(tabAdapter);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-        for(String tab_name : tabs){
-            ActionBar.Tab tab = actionBar.newTab().setText(tab_name).setTabListener(this);
-            //tab.setIcon(R.drawable.ic_favunsel);
-            actionBar.addTab(tab);
-        }
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
             }
         });
     }
