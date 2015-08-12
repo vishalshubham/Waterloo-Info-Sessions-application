@@ -17,6 +17,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import uwinfosessions.uwinfosessions.R;
 import uwinfosessions.uwinfosessions.adapter.TabsPagerAdapter;
@@ -54,7 +55,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle("Menu");
+                getActionBar().setTitle(R.string.menu_title);
             }
         };
 
@@ -67,8 +68,8 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
         drawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String[] menu_options = getResources().getStringArray(R.array.string_menu_options);
-
+                //String[] menu_options = getResources().getStringArray(R.array.string_menu_options);
+                Toast.makeText(InfoSessionListActivity.this, "Clicked "+ position, Toast.LENGTH_LONG).show();
             }
         });
 
