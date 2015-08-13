@@ -114,9 +114,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         }
 
-        //imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
-        //imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         imageLocation.setImageResource(R.drawable.ic_location);
         imageShare.setImageResource(R.drawable.ic_share);
         imageRightArrow.setImageResource(R.drawable.ic_right_arrow);
@@ -132,14 +130,23 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 Database db = new Database(context);
                 ImageView image = (ImageView) v;
-                image.setImageResource(R.drawable.ic_favsel);
-                db.storeFavSession(infoNode);
-                Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!" + context.toString() + ":", Toast.LENGTH_LONG);
-                toast.show();
+
                 SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.FAV_SESSIONS, 0);
                 SharedPreferences.Editor editor = prefs.edit();
                 String str = prefs.getString(InfoSessionListActivity.FAV_SESSIONS, "");
-                str = str + "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                String date = "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                if (str.indexOf(date) == -1) {
+                    str = str + date;
+                    image.setImageResource(R.drawable.ic_favsel);
+                    db.storeFavSession(infoNode);
+                    Toast.makeText(context, "ADDED: " + sessionName + " saved as your favourite session!" + context.toString() + ":", Toast.LENGTH_LONG).show();
+                } else {
+                    str = str.replace(date, "");
+                    Log.d(InfoSessionListActivity.DEBUGTAG, "----" + str + "----");
+                    image.setImageResource(R.drawable.ic_favunsel);
+                    //db.removeRemSession(infoNode);
+                    Toast.makeText(context, "REMOVED: " + sessionName + " from your favourite list!" + context.toString() + ":", Toast.LENGTH_LONG).show();
+                }
                 editor.putString(InfoSessionListActivity.FAV_SESSIONS, str);
                 Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
                 editor.commit();
@@ -161,14 +168,23 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 Database db = new Database(context);
                 ImageView image = (ImageView) v;
-                image.setImageResource(R.drawable.ic_reminder_sel);
-                db.storeRemSession(infoNode);
-                Toast toast = Toast.makeText(context, "Reminder set for " + sessionName + " session!", Toast.LENGTH_LONG);
-                toast.show();
+
                 SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.REM_SESSIONS, 0);
                 SharedPreferences.Editor editor = prefs.edit();
                 String str = prefs.getString(InfoSessionListActivity.REM_SESSIONS, "");
-                str = str + "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                String date = "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                if (str.indexOf(date) == -1) {
+                    str = str + date;
+                    image.setImageResource(R.drawable.ic_reminder_sel);
+                    db.storeRemSession(infoNode);
+                    Toast.makeText(context, "ADDED: Reminder for " + sessionName + " session!", Toast.LENGTH_LONG).show();
+
+                } else {
+                    str = str.replace(date, "");
+                    image.setImageResource(R.drawable.ic_reminder_unsel);
+                    //db.removeRemSession(infoNode);
+                    Toast.makeText(context, "REMOVED: Reminder for " + sessionName + " session!", Toast.LENGTH_LONG).show();
+                }
                 editor.putString(InfoSessionListActivity.REM_SESSIONS, str);
                 Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
                 editor.commit();
@@ -196,16 +212,6 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });
-
-        /*imageRightArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, InfoSessionActivity.class);
-                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
-                context.startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Clicked Right Arrow on " + sessionName);
-            }
-        });*/
 
         return view;
     }
