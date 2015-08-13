@@ -77,7 +77,6 @@ public class Database extends SQLiteOpenHelper {
 
     public void removeFavSession(InfoNode infoNode){
         SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
 
         Log.d(InfoSessionListActivity.DEBUGTAG, "Favourite Session Removed: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
 
@@ -87,7 +86,6 @@ public class Database extends SQLiteOpenHelper {
 
     public void removeRemSession(InfoNode infoNode){
         SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
 
         Log.d(InfoSessionListActivity.DEBUGTAG, "Reminder Session Removed: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
 
