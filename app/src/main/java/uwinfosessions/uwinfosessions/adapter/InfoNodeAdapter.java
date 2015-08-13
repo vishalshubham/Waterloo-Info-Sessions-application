@@ -29,13 +29,10 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
 
     private List<InfoNode> infoNodes;
     private Context context;
-    private String favString = "";
 
     public InfoNodeAdapter(Context context, List<InfoNode> infoNodes){
         this.context = context;
         this.infoNodes = infoNodes;
-        SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.FAV_SESSIONS, 0);
-        favString = prefs.getString(InfoSessionListActivity.FAV_SESSIONS, "");
     }
 
     public InfoNodeAdapter(Context context){
@@ -97,16 +94,29 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         ImageView imageShare = (ImageView)view.findViewById(R.id.ic_share);
         ImageView imageRightArrow = (ImageView)view.findViewById(R.id.ic_right_arrow);
 
+        SharedPreferences favPrefs = context.getSharedPreferences(InfoSessionListActivity.FAV_SESSIONS, 0);
+        String favString = favPrefs.getString(InfoSessionListActivity.FAV_SESSIONS, "");
         if(favString.indexOf(sessionName)!=-1){
             imageFav.setImageResource(R.drawable.ic_favsel);
         }
         else{
+            Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + favString.indexOf(sessionName));
             imageFav.setImageResource(R.drawable.ic_favunsel);
+        }
+
+        SharedPreferences remPrefs = context.getSharedPreferences(InfoSessionListActivity.REM_SESSIONS, 0);
+        String remString = remPrefs.getString(InfoSessionListActivity.REM_SESSIONS, "");
+        if(remString.indexOf(sessionName)!=-1){
+            imageReminder.setImageResource(R.drawable.ic_reminder_sel);
+        }
+        else{
+            Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + favString.indexOf(sessionName) + sessionName);
+            imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         }
 
         //imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
-        imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
+        //imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         imageLocation.setImageResource(R.drawable.ic_location);
         imageShare.setImageResource(R.drawable.ic_share);
         imageRightArrow.setImageResource(R.drawable.ic_right_arrow);
@@ -154,8 +164,14 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 image.setImageResource(R.drawable.ic_reminder_sel);
                 db.storeRemSession(infoNode);
                 Toast toast = Toast.makeText(context, "Reminder set for " + sessionName + " session!", Toast.LENGTH_LONG);
-                //toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                 toast.show();
+                SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.REM_SESSIONS, 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                String str = prefs.getString(InfoSessionListActivity.REM_SESSIONS, "");
+                str = str + "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                editor.putString(InfoSessionListActivity.REM_SESSIONS, str);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
+                editor.commit();
             }
         });
 
