@@ -2,6 +2,8 @@ package uwinfosessions.uwinfosessions.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import uwinfosessions.uwinfosessions.activity.InfoSessionActivity;
+import uwinfosessions.uwinfosessions.activity.InfoSessionListActivity;
 import uwinfosessions.uwinfosessions.activity.MainActivity;
 import uwinfosessions.uwinfosessions.activity.MapActivity;
 import uwinfosessions.uwinfosessions.R;
@@ -26,10 +29,13 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
 
     private List<InfoNode> infoNodes;
     private Context context;
+    private String favString = "";
 
     public InfoNodeAdapter(Context context, List<InfoNode> infoNodes){
         this.context = context;
         this.infoNodes = infoNodes;
+        SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.FAV_SESSIONS, 0);
+        favString = prefs.getString(InfoSessionListActivity.FAV_SESSIONS, "");
     }
 
     public InfoNodeAdapter(Context context){
@@ -91,7 +97,14 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         ImageView imageShare = (ImageView)view.findViewById(R.id.ic_share);
         ImageView imageRightArrow = (ImageView)view.findViewById(R.id.ic_right_arrow);
 
-        imageFav.setImageResource(R.drawable.ic_favunsel);
+        if(favString.indexOf(sessionName)!=-1){
+            imageFav.setImageResource(R.drawable.ic_favsel);
+        }
+        else{
+            imageFav.setImageResource(R.drawable.ic_favunsel);
+        }
+
+        //imageFav.setImageResource(R.drawable.ic_favunsel);
         imageInfo.setImageResource(R.drawable.ic_info);
         imageReminder.setImageResource(R.drawable.ic_reminder_unsel);
         imageLocation.setImageResource(R.drawable.ic_location);
@@ -112,8 +125,14 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 image.setImageResource(R.drawable.ic_favsel);
                 db.storeFavSession(infoNode);
                 Toast toast = Toast.makeText(context, sessionName + " saved as your favourite session!" + context.toString() + ":", Toast.LENGTH_LONG);
-                //toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
+                SharedPreferences prefs = context.getSharedPreferences(InfoSessionListActivity.FAV_SESSIONS, 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                String str = prefs.getString(InfoSessionListActivity.FAV_SESSIONS, "");
+                str = str + "|" + sessionName + ":" + sessionDate + ":" + sessionTime;
+                editor.putString(InfoSessionListActivity.FAV_SESSIONS, str);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
+                editor.commit();
             }
         });
 

@@ -19,7 +19,7 @@
     <string name="graduate">Graduating</string>
     <string name="drawer_open">Open Navigation Drawer</string>
     <string name="drawer_close">Close Navigation Drawer</string>
-    <string name="menu_title">Options</string>
+    <string name="menu_title">Choose an option</string>
     <string name="select_calendar"><![CDATA[Select Month & Year]]></string>
 
     <string-array name="string_menu_options">
@@ -66,5 +66,5 @@
         <item>Oct-2016</item>
         <item>Nov-2016</item>
         <item>Dec-2016</item>
-    </string-array>\
+    </string-array>
 </resources>

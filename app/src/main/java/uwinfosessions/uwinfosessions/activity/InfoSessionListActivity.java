@@ -34,6 +34,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
     public static String DEBUGTAG = "VC";
     public static String WHOLE_LINE = "whole_line";
+    public static String FAV_SESSIONS = "FAV_SESSIONS";
     public ViewPager viewPager;
     public TabsPagerAdapter tabAdapter;
     public ActionBar actionBar;
