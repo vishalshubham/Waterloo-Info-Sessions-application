@@ -79,13 +79,9 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        Log.d(InfoSessionListActivity.DEBUGTAG, "Favourite Session Saved: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
-        values.put(COL_S_NAME, infoNode.getSessionName());
-        values.put(COL_S_DATE, infoNode.getSessionDate());
-        values.put(COL_S_TIME, infoNode.getSessionTime());
-        values.put(COL_S_LOCN, infoNode.getSessionLocation());
+        Log.d(InfoSessionListActivity.DEBUGTAG, "Favourite Session Removed: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
 
-        db.insert(FAV_TABLE, null, values);
+        db.delete(FAV_TABLE, COL_S_NAME + "=\"" + infoNode.getSessionName() + "\" and " + COL_S_DATE + "=\"" + infoNode.getSessionDate() + "\" and " + COL_S_TIME + "=\"" + infoNode.getSessionTime() + "\"", null);
         db.close();
     }
 
@@ -93,13 +89,9 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        Log.d(InfoSessionListActivity.DEBUGTAG, "Reminder Session Saved: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
-        values.put(COL_S_NAME, infoNode.getSessionName());
-        values.put(COL_S_DATE, infoNode.getSessionDate());
-        values.put(COL_S_TIME, infoNode.getSessionTime());
-        values.put(COL_S_LOCN, infoNode.getSessionLocation());
+        Log.d(InfoSessionListActivity.DEBUGTAG, "Reminder Session Removed: " + infoNode.getSessionName() + " - " + infoNode.getSessionDate() + " - " + infoNode.getSessionTime() + " - " + infoNode.getSessionLocation());
 
-        db.insert(REM_TABLE, null, values);
+        db.delete(REM_TABLE, COL_S_NAME + "=\"" + infoNode.getSessionName() + "\" and " + COL_S_DATE + "=\"" + infoNode.getSessionDate() + "\" and " + COL_S_TIME + "=\"" + infoNode.getSessionTime() + "\"", null);
         db.close();
     }
 

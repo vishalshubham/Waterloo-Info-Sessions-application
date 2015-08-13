@@ -139,13 +139,13 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                     str = str + date;
                     image.setImageResource(R.drawable.ic_favsel);
                     db.storeFavSession(infoNode);
-                    Toast.makeText(context, "ADDED: " + sessionName + " saved as your favourite session!" + context.toString() + ":", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "ADDED: " + sessionName + " saved as your favourite session!", Toast.LENGTH_LONG).show();
                 } else {
                     str = str.replace(date, "");
                     Log.d(InfoSessionListActivity.DEBUGTAG, "----" + str + "----");
                     image.setImageResource(R.drawable.ic_favunsel);
-                    //db.removeRemSession(infoNode);
-                    Toast.makeText(context, "REMOVED: " + sessionName + " from your favourite list!" + context.toString() + ":", Toast.LENGTH_LONG).show();
+                    db.removeFavSession(infoNode);
+                    Toast.makeText(context, "REMOVED: " + sessionName + " from your favourite list!", Toast.LENGTH_LONG).show();
                 }
                 editor.putString(InfoSessionListActivity.FAV_SESSIONS, str);
                 Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
@@ -182,7 +182,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 } else {
                     str = str.replace(date, "");
                     image.setImageResource(R.drawable.ic_reminder_unsel);
-                    //db.removeRemSession(infoNode);
+                    db.removeRemSession(infoNode);
                     Toast.makeText(context, "REMOVED: Reminder for " + sessionName + " session!", Toast.LENGTH_LONG).show();
                 }
                 editor.putString(InfoSessionListActivity.REM_SESSIONS, str);
