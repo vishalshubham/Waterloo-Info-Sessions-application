@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -107,7 +108,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0:
+                    case 0: // Calendar option
                         AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this);
                         builder.setTitle(R.string.select_calendar);
                         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -118,7 +119,10 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(InfoSessionListActivity.this, "Checked " + spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(InfoSessionListActivity.this, InfoSessionListActivity.class);
+                                startActivity(i);
+                                InfoSessionListActivity.this.finish();
+                                Toast.makeText(InfoSessionListActivity.this, "Your calendar settings changed to : " + spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
                             }
                         });
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
