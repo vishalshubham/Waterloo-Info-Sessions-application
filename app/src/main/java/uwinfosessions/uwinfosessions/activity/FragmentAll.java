@@ -2,6 +2,7 @@ package uwinfosessions.uwinfosessions.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import uwinfosessions.uwinfosessions.R;
@@ -78,6 +80,20 @@ public class FragmentAll extends Fragment {
     public List<InfoNode> downloadPage(){
         try{
             ArrayList<InfoNode> infoNodeList = new ArrayList<InfoNode>();
+            SharedPreferences prefs = getActivity().getSharedPreferences(InfoSessionListActivity.CURR_DATE, 0);
+            String currDate = prefs.getString(InfoSessionListActivity.CURR_DATE, "");
+            String month_num = "";
+            String year_num = "";
+            if(currDate == ""){
+                month_num = new Date().toString();
+                year_num = new Date().toString();
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Month:: and Year " + month_num + year_num);
+            }
+            else{
+                month_num = currDate.substring(0,2);
+                year_num = currDate.substring(4);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Month: and Year " + month_num + year_num);
+            }
             URL oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=1&year_num=2015");
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(oracle.openStream()));

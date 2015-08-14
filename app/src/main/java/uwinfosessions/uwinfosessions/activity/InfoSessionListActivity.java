@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -36,6 +37,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
     public static String WHOLE_LINE = "whole_line";
     public static String FAV_SESSIONS = "FAV_SESSIONS";
     public static String REM_SESSIONS = "REM_SESSIONS";
+    public static String CURR_DATE = "CURR_DATE";
     public ViewPager viewPager;
     public TabsPagerAdapter tabAdapter;
     public ActionBar actionBar;
@@ -121,6 +123,10 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences prefs = getSharedPreferences(InfoSessionListActivity.CURR_DATE, 0);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putString(InfoSessionListActivity.CURR_DATE, spinner.getSelectedItem().toString());
+                                editor.commit();
                                 Intent i = new Intent(InfoSessionListActivity.this, InfoSessionListActivity.class);
                                 startActivity(i);
                                 InfoSessionListActivity.this.finish();
