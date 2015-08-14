@@ -84,17 +84,21 @@ public class FragmentAll extends Fragment {
             String currDate = prefs.getString(InfoSessionListActivity.CURR_DATE, "");
             String month_num = "";
             String year_num = "";
-            if(currDate == ""){
+            URL oracle;
+            if(currDate.equals("")){
                 month_num = new Date().toString();
                 year_num = new Date().toString();
                 Log.d(InfoSessionListActivity.DEBUGTAG, "Month:: and Year " + month_num + year_num);
+                oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php");
             }
             else{
-                month_num = currDate.substring(0,2);
+                month_num = currDate.substring(0,3);
                 year_num = currDate.substring(4);
                 Log.d(InfoSessionListActivity.DEBUGTAG, "Month: and Year " + month_num + year_num);
+                month_num = getMonthNum(month_num);
+                oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=" + month_num + "&year_num=" + year_num);
             }
-            URL oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=1&year_num=2015");
+
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(oracle.openStream()));
 
@@ -130,6 +134,46 @@ public class FragmentAll extends Fragment {
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getMonthNum(String month){
+        if(month.equals("Jan")){
+            return "01";
+        }
+        else if (month.equals("Feb")){
+            return "02";
+        }
+        else if (month.equals("Mar")){
+            return "03";
+        }
+        else if (month.equals("Apr")){
+            return "04";
+        }
+        else if (month.equals("May")){
+            return "05";
+        }
+        else if (month.equals("Jun")){
+            return "06";
+        }
+        else if (month.equals("Jul")){
+            return "07";
+        }
+        else if (month.equals("Aug")){
+            return "08";
+        }
+        else if (month.equals("Sep")){
+            return "09";
+        }
+        else if (month.equals("Oct")){
+            return "10";
+        }
+        else if (month.equals("Nov")){
+            return "11";
+        }
+        else if (month.equals("Dec")){
+            return "12";
         }
         return null;
     }

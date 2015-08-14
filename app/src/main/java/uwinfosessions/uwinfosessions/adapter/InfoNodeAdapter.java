@@ -52,7 +52,14 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
     }
     @Override
     public int getCount() {
-        return infoNodes.size();
+        //Log.d(InfoSessionListActivity.DEBUGTAG, "Size of the infoNodes:" + infoNodes.size());
+        if(infoNodes!=null){
+            return infoNodes.size();
+        }
+        else{
+            return 0;
+        }
+        //return infoNodes.size();
     }
 
     @Override
