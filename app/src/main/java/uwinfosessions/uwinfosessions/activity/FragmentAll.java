@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -59,6 +60,10 @@ public class FragmentAll extends Fragment {
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                if(infoNodeAdapter.getCount()<=0){
+                    TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify);
+                    textNotify.setText("Sorry! No sessions scheduled in this month.");
+                }
                 list_main.setAdapter(infoNodeAdapter);
                 list_main.setItemsCanFocus(true);
                 dialog.dismiss();
