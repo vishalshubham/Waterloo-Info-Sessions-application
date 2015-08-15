@@ -2,6 +2,7 @@ package uwinfosessions.uwinfosessions.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -54,9 +55,12 @@ public class FragmentFavourite extends Fragment {
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_fav);
                 if(infoNodeAdapter.getCount()<=0){
-                    TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify);
-                    textNotify.setText("Sorry! No sessions scheduled in this month.");
+                    textNotify.setText("Sorry! No favourite sessions.");
+                }
+                else{
+                    textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));
                 }
                 list_main.setAdapter(infoNodeAdapter);
                 list_main.setItemsCanFocus(true);

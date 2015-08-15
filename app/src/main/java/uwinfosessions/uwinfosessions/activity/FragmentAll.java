@@ -3,6 +3,7 @@ package uwinfosessions.uwinfosessions.activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
@@ -60,9 +61,12 @@ public class FragmentAll extends Fragment {
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_all);
                 if(infoNodeAdapter.getCount()<=0){
-                    TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify);
                     textNotify.setText("Sorry! No sessions scheduled in this month.");
+                }
+                else{
+                    textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));
                 }
                 list_main.setAdapter(infoNodeAdapter);
                 list_main.setItemsCanFocus(true);
