@@ -12,6 +12,3 @@
     android:minHeight="?android:attr/listPreferredItemHeightSmall">
     </TextView>
 
-<!--
-
-    android:drawableLeft="@drawable/ic_pointer"-->
