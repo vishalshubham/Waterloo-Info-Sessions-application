@@ -3,21 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal" />
     <ListView
         android:id="@+id/main_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:background="#dddddd"
-        android:headerDividersEnabled="true"
-        >
+        android:headerDividersEnabled="true">
     </ListView>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text_notify"
+            android:id="@+id/text_notify_today"
             android:paddingRight="16dp"
             android:paddingLeft="16dp"
             android:paddingTop="7dp"

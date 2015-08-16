@@ -4,14 +4,13 @@
     android:layout_height="match_parent">
 
     <ListView
-    android:id="@+id/main_list"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp"
-    android:background="#dddddd"
-    android:headerDividersEnabled="true"
-    >
+        android:id="@+id/main_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="#dddddd"
+        android:headerDividersEnabled="true">
     </ListView>
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,5 +34,4 @@
             android:background="#FFF"
             style="@style/style_text_no_sessions"/>
     </LinearLayout>
-
 </LinearLayout>
