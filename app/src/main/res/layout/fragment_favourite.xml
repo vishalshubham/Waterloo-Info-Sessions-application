@@ -33,6 +33,6 @@
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
             android:background="#FFF"
-            style="@style/style_text_session_name"/>
+            style="@style/style_text_no_sessions"/>
     </LinearLayout>
 </LinearLayout>

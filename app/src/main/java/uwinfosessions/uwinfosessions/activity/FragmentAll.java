@@ -63,7 +63,7 @@ public class FragmentAll extends Fragment {
             protected void onPostExecute(Void aVoid) {
                 TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_all);
                 if(infoNodeAdapter.getCount()<=0){
-                    textNotify.setText("Sorry! No sessions scheduled in this month.");
+                    textNotify.setText("No sessions scheduled in this month.");
                 }
                 else{
                     textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));

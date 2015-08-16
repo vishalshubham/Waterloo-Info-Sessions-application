@@ -57,7 +57,7 @@ public class FragmentReminder extends Fragment {
             protected void onPostExecute(Void aVoid) {
                 TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_rem);
                 if(infoNodeAdapter.getCount()<=0){
-                    textNotify.setText("Sorry! No reminders set for any session.");
+                    textNotify.setText("No reminders set for any session.");
                 }
                 else{
                     textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));

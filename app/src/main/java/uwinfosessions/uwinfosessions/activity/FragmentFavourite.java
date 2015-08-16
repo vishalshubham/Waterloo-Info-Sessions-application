@@ -57,7 +57,7 @@ public class FragmentFavourite extends Fragment {
             protected void onPostExecute(Void aVoid) {
                 TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_fav);
                 if(infoNodeAdapter.getCount()<=0){
-                    textNotify.setText("Sorry! No favourite sessions.");
+                    textNotify.setText("No favourite sessions.");
                 }
                 else{
                     textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));
