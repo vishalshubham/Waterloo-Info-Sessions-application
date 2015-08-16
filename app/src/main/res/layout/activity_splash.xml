@@ -8,6 +8,7 @@
     android:background="#FFBB33">
 
     <ImageView
+        android:id="@+id/splash_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/waterloo"

@@ -42,7 +42,7 @@ public class MainActivity extends Activity{
             setInfoNodeListner();
         }
         else{
-            setContentView(R.layout.activity_splash);
+            //
         }
     }
 
