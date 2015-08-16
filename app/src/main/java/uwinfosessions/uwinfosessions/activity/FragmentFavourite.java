@@ -75,7 +75,7 @@ public class FragmentFavourite extends Fragment {
                 Intent i = new Intent(getActivity(), InfoSessionActivity.class);
                 i.putExtra(WHOLE_LINE, infoNodeAdapter.getSessionLine(position));
                 startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
             }
         });
     }

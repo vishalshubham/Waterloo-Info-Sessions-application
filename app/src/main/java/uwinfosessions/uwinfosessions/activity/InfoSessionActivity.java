@@ -19,7 +19,7 @@ public class InfoSessionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_session);
-        String line = getIntent().getStringExtra(MainActivity.WHOLE_LINE);
+        String line = getIntent().getStringExtra(InfoSessionListActivity.WHOLE_LINE);
         /*TextView wholeLineTextView = (TextView)findViewById(R.id.text_whole_line);
         wholeLineTextView.setText(line);*/
         InfoNode infoNode = getInfoNode(line);
@@ -44,7 +44,7 @@ public class InfoSessionActivity extends Activity {
         textInfoSessionTime.setText(infoNode.getSessionTime());
         textInfoSessionLocation.setText(infoNode.getSessionLocation());
         textInfoSessionWebsite.setText("Website goes here");
-        textInfoSessionDetails.setText(infoNode.getSessionFor() + getIntent().getStringExtra(MainActivity.WHOLE_LINE));
+        textInfoSessionDetails.setText(infoNode.getSessionFor() + getIntent().getStringExtra(InfoSessionListActivity.WHOLE_LINE));
 
         boolean flag1=true;
         boolean flag2=true;

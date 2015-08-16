@@ -18,7 +18,6 @@ import java.util.List;
 
 import uwinfosessions.uwinfosessions.activity.InfoSessionActivity;
 import uwinfosessions.uwinfosessions.activity.InfoSessionListActivity;
-import uwinfosessions.uwinfosessions.activity.MainActivity;
 import uwinfosessions.uwinfosessions.activity.MapActivity;
 import uwinfosessions.uwinfosessions.R;
 
@@ -130,7 +129,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
         sessionDateTimeView.setText(sessionDate + ", " + sessionTime);
         sessionLocationView.setText(sessionLocation);
         sessionForView.setText(sessionFor);
-        Log.d(MainActivity.DEBUGTAG, "Setting text and icons");
+        Log.d(InfoSessionListActivity.DEBUGTAG, "Setting text and icons");
 
         imageFav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,9 +163,9 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, InfoSessionActivity.class);
-                i.putExtra(MainActivity.WHOLE_LINE, sessionLine);
+                i.putExtra(InfoSessionListActivity.WHOLE_LINE, sessionLine);
                 context.startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Clicked Info on " + sessionName);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Clicked Info on " + sessionName);
             }
         });
 
@@ -203,7 +202,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 Intent i = new Intent(context, MapActivity.class);
                 context.startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Clicked Map on " + sessionName);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Clicked Map on " + sessionName);
             }
         });
 
@@ -216,7 +215,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, sessionName + " coming here!");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareString);
                 context.startActivity(Intent.createChooser(sharingIntent, "Share " + sessionName + " via"));
-                Log.d(MainActivity.DEBUGTAG, "Clicked Share on " + sessionName);
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Clicked Share on " + sessionName);
             }
         });
 

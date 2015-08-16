@@ -81,7 +81,7 @@ public class FragmentAll extends Fragment {
                 Intent i = new Intent(getActivity(), InfoSessionActivity.class);
                 i.putExtra(WHOLE_LINE, infoNodeAdapter.getSessionLine(position));
                 startActivity(i);
-                Log.d(MainActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
+                Log.d(InfoSessionListActivity.DEBUGTAG, "Position: " + position + "; Value: " + infoNodeAdapter.getSessionLine(position) + ";");
             }
         });
     }
@@ -138,7 +138,7 @@ public class FragmentAll extends Fragment {
                 return infoNodeList;
             }
             else{
-                Log.d(MainActivity.DEBUGTAG, "No Records exist");
+                Log.d(InfoSessionListActivity.DEBUGTAG, "No Records exist");
             }
             in.close();
         } catch (Exception e) {
