@@ -62,7 +62,9 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                getActionBar().setTitle("Info Sessions");
+                SharedPreferences prefs = getSharedPreferences(CURR_DATE, 0);
+                String curr_date = prefs.getString(CURR_DATE, "");
+                getActionBar().setTitle("Info Sessions in " + curr_date);
                 invalidateOptionsMenu();
             }
 
@@ -71,6 +73,10 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                 getActionBar().setTitle(R.string.menu_title);
             }
         };
+
+        SharedPreferences prefs = getSharedPreferences(CURR_DATE, 0);
+        String curr_date = prefs.getString(CURR_DATE, "");
+        getActionBar().setTitle("Info Sessions in " + curr_date);
 
         drawerLayout.setDrawerListener(drawerToggle);
 
