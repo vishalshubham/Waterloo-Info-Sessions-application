@@ -98,9 +98,10 @@ public class FragmentToday extends Fragment {
             String date = getToday();
             String day_num = date.substring(0,2);
             String month_char = date.substring(3,6);
-            String year_num = date.substring(8);
+            //String month_char = "Sep";
+            String year_num = date.substring(7);
             URL oracle;
-            Log.d(InfoSessionListActivity.DEBUGTAG, "Month: and Year " + month_char + year_num);
+            Log.d(InfoSessionListActivity.DEBUGTAG, "Date: " + day_num + month_char + year_num);
             String month_num = getMonthNum(month_char);
             oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=" + month_num + "&year_num=" + year_num);
 
@@ -119,12 +120,17 @@ public class FragmentToday extends Fragment {
                 wholeLine = wholeLine.substring(start);
 
                 int id=0;
+                String check_date = getMonthFullName(month_char) + " " + day_num + ", "  + year_num;
+                //String check_date = "September" + " " + day_num + ", "  + year_num;
+                Log.d(DEBUGTAG, "Check Date------------------" + check_date);
                 while(wholeLine.indexOf("<p><a href=\"sessions_details.php?id=")>=0){
-                    String line = wholeLine.substring(wholeLine.indexOf("<p><a href=\"sessions_details.php?id="), wholeLine.indexOf("</a></p>")+8);
+                    String line = wholeLine.substring(wholeLine.indexOf("<p><a href=\"sessions_details.php?id="), wholeLine.indexOf("</a></p>") + 8);
                     wholeLine = wholeLine.substring(wholeLine.indexOf("</a></p>") + 8);
                     System.out.println(line);
                     InfoNode infoNode = getInfoNode(++id, line);
-                    if(!infoNode.getSessionName().contains("No info sessions") && !infoNode.getSessionName().contains("New Year")) {
+                    Log.d(DEBUGTAG, "11111111111111" + check_date);
+                    Log.d(DEBUGTAG, "22222222222222" + infoNode.getSessionDate());
+                    if(!infoNode.getSessionName().contains("No info sessions") && !infoNode.getSessionName().contains("New Year") && (infoNode.getSessionDate().indexOf(check_date)!=-1)) {
                         infoNodeList.add(infoNode);
                     }
                     else{
@@ -139,6 +145,46 @@ public class FragmentToday extends Fragment {
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getMonthFullName(String month){
+        if(month.equals("Jan")){
+            return "January";
+        }
+        else if (month.equals("Feb")){
+            return "February";
+        }
+        else if (month.equals("Mar")){
+            return "March";
+        }
+        else if (month.equals("Apr")){
+            return "April";
+        }
+        else if (month.equals("May")){
+            return "May";
+        }
+        else if (month.equals("Jun")){
+            return "June";
+        }
+        else if (month.equals("Jul")){
+            return "July";
+        }
+        else if (month.equals("Aug")){
+            return "August";
+        }
+        else if (month.equals("Sep")){
+            return "September";
+        }
+        else if (month.equals("Oct")){
+            return "October";
+        }
+        else if (month.equals("Nov")){
+            return "November";
+        }
+        else if (month.equals("Dec")){
+            return "December";
         }
         return null;
     }
