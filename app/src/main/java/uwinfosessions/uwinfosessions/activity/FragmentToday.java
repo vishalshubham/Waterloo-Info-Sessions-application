@@ -36,7 +36,7 @@ public class FragmentToday extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_all, container, false);
+        View view = inflater.inflate(R.layout.fragment_today, container, false);
         setInfoNodeListner(view);
         return view;
     }
@@ -59,9 +59,9 @@ public class FragmentToday extends Fragment {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_all);
+                TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_today);
                 if(infoNodeAdapter.getCount()<=0){
-                    textNotify.setText("No sessions scheduled in this month.\n OR \n Internet connection is unavailable.");
+                    textNotify.setText("No sessions scheduled for today.\n OR \n Internet connection is unavailable.");
                 }
                 else{
                     textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));
@@ -84,27 +84,25 @@ public class FragmentToday extends Fragment {
         });
     }
 
+    public String getToday(){
+        String date = (new Date()).toString();
+        String day = date.substring(8, 10);
+        String month = date.substring(4, 7);
+        String year = date.substring(24);
+        return (day + "-" + month + "-" + year);
+    }
+
     public List<InfoNode> downloadPage(){
         try{
             ArrayList<InfoNode> infoNodeList = new ArrayList<InfoNode>();
-            SharedPreferences prefs = getActivity().getSharedPreferences(InfoSessionListActivity.CURR_DATE, 0);
-            String currDate = prefs.getString(InfoSessionListActivity.CURR_DATE, "");
-            String month_num = "";
-            String year_num = "";
+            String date = getToday();
+            String day_num = date.substring(0,2);
+            String month_char = date.substring(3,6);
+            String year_num = date.substring(8);
             URL oracle;
-            if(currDate.equals("")){
-                month_num = new Date().toString();
-                year_num = new Date().toString();
-                Log.d(InfoSessionListActivity.DEBUGTAG, "Month:: and Year " + month_num + year_num);
-                oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php");
-            }
-            else{
-                month_num = currDate.substring(0,3);
-                year_num = currDate.substring(4);
-                Log.d(InfoSessionListActivity.DEBUGTAG, "Month: and Year " + month_num + year_num);
-                month_num = getMonthNum(month_num);
-                oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=" + month_num + "&year_num=" + year_num);
-            }
+            Log.d(InfoSessionListActivity.DEBUGTAG, "Month: and Year " + month_char + year_num);
+            String month_num = getMonthNum(month_char);
+            oracle = new URL("http://www.ceca.uwaterloo.ca/students/sessions.php?month_num=" + month_num + "&year_num=" + year_num);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(oracle.openStream()));
