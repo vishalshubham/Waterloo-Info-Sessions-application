@@ -1,9 +1,13 @@
 package uwinfosessions.uwinfosessions.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -156,6 +160,20 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                 editor.putString(InfoSessionListActivity.FAV_SESSIONS, str);
                 Log.d(InfoSessionListActivity.DEBUGTAG, "-->" + str);
                 editor.commit();
+
+//                if (context instanceof FragmentActivity) {
+                   /* // We can get the fragment manager
+                    FragmentActivity activity = (FragmentActivity) context;
+                    FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();*/
+//                } else if (context instanceof Activity) {
+                    /*Fragment frg = null;
+                    frg = context.getSupportFragmentManager().findFragmentByTag("Your_Fragment_TAG");*/
+//                }
+
+//                final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                ft.detach(frg);
+//                ft.attach(frg);
+//                ft.commit();
             }
         });
 
