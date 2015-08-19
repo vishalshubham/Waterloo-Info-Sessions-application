@@ -30,6 +30,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import uwinfosessions.uwinfosessions.R;
@@ -151,6 +152,14 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                             }
                         });
                         AlertDialog dialog = builder.create();
+                        //dialog.setIcon(R.drawable.ic_calendar_grey);
+                        TextView textView = new TextView(InfoSessionListActivity.this);
+                        textView.setBackgroundColor(Color.parseColor("#FFBB33"));
+                        textView.setText(R.string.select_calendar);
+                        textView.setTextColor(Color.WHITE);
+                        textView.setTextSize(24);
+                        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_calendar_white, 0, 0, 0);
+                        dialog.setCustomTitle(textView);
                         dialog.show();
 
 
