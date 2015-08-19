@@ -158,6 +158,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         textView.setText(R.string.select_calendar);
                         textView.setTextColor(Color.WHITE);
                         textView.setTextSize(24);
+                        textView.setPadding(10, 50, 10, 50);
                         textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_calendar_white, 0, 0, 0);
                         dialog.setCustomTitle(textView);
                         dialog.show();
