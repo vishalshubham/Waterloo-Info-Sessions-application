@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -152,8 +153,12 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
 
                         Button b1 = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
                         b1.setBackgroundColor(Color.parseColor("#FFBB33"));
+                        b1.setTextColor(Color.WHITE);
+                        b1.setTypeface(Typeface.DEFAULT_BOLD);
                         Button b2 = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
                         b2.setBackgroundColor(Color.parseColor("#FFBB33"));
+                        b2.setTextColor(Color.WHITE);
+                        b2.setTypeface(Typeface.DEFAULT_BOLD);
 
                         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(InfoSessionListActivity.this, R.array.string_calendar, android.R.layout.simple_spinner_item);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
