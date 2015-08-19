@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -122,7 +123,8 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: // Calendar option
-                        AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this);
+                        ContextThemeWrapper ctw = new ContextThemeWrapper( InfoSessionListActivity.this, R.style.style_ic_pressed );
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                         builder.setTitle(R.string.select_calendar);
                         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View v = inflater.inflate(R.layout.layout_alert_calendar, null);
@@ -151,10 +153,14 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
                         AlertDialog dialog = builder.create();
                         dialog.show();
 
+
+                        //AlertDialog.Builder builder= new AlertDialog.Builder( ctw );
+
                         Button b1 = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
                         b1.setBackgroundColor(Color.parseColor("#FFBB33"));
                         b1.setTextColor(Color.WHITE);
                         b1.setTypeface(Typeface.DEFAULT_BOLD);
+
                         Button b2 = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
                         b2.setBackgroundColor(Color.parseColor("#FFBB33"));
                         b2.setTextColor(Color.WHITE);
