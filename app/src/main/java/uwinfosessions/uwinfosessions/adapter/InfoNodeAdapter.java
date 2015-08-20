@@ -149,7 +149,7 @@ public class InfoNodeAdapter extends BaseAdapter implements ListAdapter {
                     image.setImageResource(R.drawable.ic_favsel);
                     db.storeFavSession(infoNode);
                     NotificationManager NM=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    Notification notify=new Notification(android.R.drawable.stat_notify_more,"Pushed Notification",System.currentTimeMillis()+10000);
+                    Notification notify=new Notification(R.drawable.ic_push,"Pushed Notification",System.currentTimeMillis()+10000);
                     PendingIntent pending=PendingIntent.getActivity(context, 0, new Intent(),0);
                     notify.setLatestEventInfo(context, "Pushed", "Notification details",pending);
                     NM.notify(0, notify);
