@@ -124,7 +124,7 @@ public class InfoSessionListActivity extends FragmentActivity implements ActionB
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: // Calendar option
-                        ContextThemeWrapper ctw = new ContextThemeWrapper( InfoSessionListActivity.this, R.style.style_ic_pressed );
+                        //ContextThemeWrapper ctw = new ContextThemeWrapper( InfoSessionListActivity.this, R.style.style_ic_pressed );
                         AlertDialog.Builder builder = new AlertDialog.Builder(InfoSessionListActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                         builder.setTitle(R.string.select_calendar);
                         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
