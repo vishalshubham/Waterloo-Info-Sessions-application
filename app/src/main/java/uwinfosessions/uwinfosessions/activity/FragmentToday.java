@@ -61,7 +61,7 @@ public class FragmentToday extends Fragment {
             protected void onPostExecute(Void aVoid) {
                 TextView textNotify = (TextView)getActivity().findViewById(R.id.text_notify_today);
                 if(infoNodeAdapter.getCount()<=0){
-                    textNotify.setText("No sessions scheduled for today.\n OR \n Internet connection is unavailable.");
+                    textNotify.setText("No sessions scheduled for today. \n OR \n Internet connection is unavailable.");
                 }
                 else{
                     textNotify.setBackgroundColor(Color.parseColor("#DDDDDD"));
