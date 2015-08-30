@@ -27,6 +27,7 @@ import uwinfosessions.uwinfosessions.adapter.InfoNodeAdapter;
 public class FragmentFavourite extends Fragment {
 
     public static String DEBUGTAG = "VC";
+    
     public static String WHOLE_LINE = "whole_line";
 
     @Override
